@@ -1,180 +1,344 @@
 import re
+import pandas as pd
 
-def sort_DXDM_cols(cols):
-    prefixes = ("CASEID", "SEASON", "SWIN", "SSPR", "SSUM", "SFAL",
+class ncs_tsv_parse:
+  # class to read in the ncs 06693 data & get it ready to use
+
+  def __init__(self):
+    self.survey = pd.read_csv("ICPSR_06693-V6/ICPSR_06693/DS0001/06693-0001-Data.tsv", sep = "\t")
+    # data includes all of the symptom data from the NCS Data
+    self.survey = pd.DataFrame(self.survey)
+    #turn into pandas DF
+    self.dxdm = pd.read_csv("ICPSR_06693-V6/ICPSR_06693/DS0002/06693-0002-Data.tsv", sep = "\t")
+    # DXDM includes all of the diagnosis data from the NCS Data
+    self.dxdm = pd.DataFrame(self.dxdm)
+    #turn into pandas DF
+
+    self.dxdm = self.dxdm.reindex(self.sort_DXDM_cols(self.dxdm.columns), axis=1)
+    # reindex according to codebook, see get_tree_data.sort_DXDM_cols for more data
+
+  def sort_DXDM_cols(self, cols):
+    # DXDM (DS0002) columns are not in any order which hurt searching
+    # Prefixes are based on the DS0002 Codebook and successfully sort the data
+    # So that searching can be done efficiently
+    # Base on https://stackoverflow.com/a/10143711
+    col_prefixes = ("CASEID", "SEASON", "SWIN", "SSPR", "SSUM", "SFAL",
                     "AGO", "AGR", "ALC", "AAB", "ASP", "BP1", "CDLT", "DEP",
                     "DRG", "DYS", "GAD", "MAN", "PD", "PT", "SIM", "SOC", "PTSD",
                     "NAP", "AG", "OLDAG", "ED", "EMP", "SELFEMP", "WKHRS", "HH",
                     "IN", "PV", "MAR", "RACE", "RWH", "RBL", "RHSP", "ROTHR", "R4",
                     "REL", "SEX", "STR", "SECU", "P1FWT", "P2WTV2", "P2WTV3", "OLDP2FWT")
-    result = []
-    for p in prefixes:                      # items in the group
-        b = []                       # items not in the group
-        for x in cols:                  # for each item
-            if x.startswith(p):      # does the item match the prefix?
-                result.append(x)          # add it to the group
+    sorted_cols = []
+      # holds sorted columns
+    for i in col_prefixes:
+        unused = []
+        to_add = []
+          # holds unysed columns each iteration
+        for x in cols:
+             # NOTE: cols is passed var with current dxdm Columsn
+            if x.startswith(i):#---if x starts with current col_prefix
+                to_add.append(x)
             else:  
-                b.append(x)          # add it to the "rest"
-        cols = b                        # continue with the non-group elements
+                unused.append(x)
+        cols = unused
+        to_add.sort()
+        sorted_cols.extend(to_add)
+           #Removes already used column names
 
-    return result
+    return sorted_cols
 
-class tree_data:
+class dataTree : pass
+  # ^ class to build our ncs1_data tree from. ncs1_data adds variables as necessary
 
+class ncs1_data:
+  # class that sets up description tree and holds all of our data
+  def __init__(self):
+    # initialize tree variables 
+    # most important are dxdm,  survey, root, and tree
+    self.tree_list = self.get_tree_list()
+    self.ncs = ncs_tsv_parse()
+    self.dxdm = self.ncs.dxdm
+    self.survey = self.ncs.survey
+    self.root = pd.DataFrame(columns = ['VarName', 'Description', 'Value', 'DataFrame', 'Start', 'End'])
+    self.tree = dataTree()
+    self.build_tree()
 
+  def get_value_from_string(self, var, start_node = "self.tree."):
+    # function to return next node from tree given the string
+    try: 
+      return eval(start_node + var)
+    except:
+      print("Value " + var + "not found in " + start_node)
+      return -1
 
+  def search_for_description(self, var, dxdm_flag=-1, search_tree = pd.DataFrame(), lvl = 1, value = -99999999999999999):
+    # function to search for a description of a column located in DS0001 or DS0002
+    if search_tree.empty: 
+      search_tree = self.root
+      #initialize search_tree
+    if dxdm_flag == -1:
+      #initialize dxdm_flag
+      try: 
+        value = self.survey.columns.get_loc(var)
+        dxdm_flag = 0
+        search_tree = search_tree[search_tree.DataFrame == "survey"]
+      except:
+        try:
+          value = self.dxdm.columns.get_loc(var)
+          dxdm_flag = 1
+          search_tree = search_tree[search_tree.DataFrame == "dxdm"]
+        except:
+          print("Value " + var + " not found in survey (DS0001) or dxdm (DS0002)")
+          return
+      search_tree = search_tree.reset_index(drop=True)
+      for x in range(0, len(search_tree)):
+        #find next node to enter
+          if value <= search_tree.loc[x, 'End'] and value >= search_tree.loc[x, 'Start']:
+              if search_tree.iloc[x, 0] != var:
+                  return self.search_for_description(var, dxdm_flag, eval("self.tree." + str(search_tree.iloc[x,0])),  0, value)
+              elif search_tree.iloc[x, 0] == var: 
+                  return search_tree.iloc[x,:]
+              else: 
+                  return -1
+    elif lvl == 1: 
+        # initialize value when dxdm_flag is set
+        if dxdm_flag: 
+            try: 
+                value = self.dxdm.columns.get_loc(var)
+            except: 
+                print("No value " + var + " in dxdm (DS0002)")
+                return
+            search_tree = search_tree[search_tree.DataFrame == "dxdm"]
+        else: 
+            try: 
+                value = self.survey.columns.get_loc(var)
+            except: 
+                print("No value " + var + " in survey (DS0001)")
+                return
+            search_tree = search_tree[search_tree.DataFrame == "survey"]
+        for x in range(0, len(search_tree)):
+          # find next node to enter
+            if value <= search_tree.iloc[x, 'End'] and value >= search_tree.iloc[x, 'Start']:
+                if search_tree.iloc[x, 0] != var:
+                  description = self.search_for_description(var, dxdm_flag, eval("self.tree." + search_tree.iloc[x,0]),  0, value)
+                  return description
+                elif search_tree.iloc[x, 0] == var: 
+                    return search_tree.iloc[x,:]
+                else: 
+                    return -1
+    else:
+      # All values are initialized
+        for x in range(0, len(search_tree)):
+          # search for next node to enter
+            if value <= search_tree.loc[x, 'End'] and value >= search_tree.loc[x, 'Start']:
+              if search_tree.iloc[x, 0] != var and search_tree.loc[x, 'recursion_flag'] == 1:
+                # recursion_flag makes sure that next node exists for recursion
+                  return self.search_for_description(var, dxdm_flag, eval("self.tree." + search_tree.iloc[x,0]),  0, value)
+              elif search_tree.iloc[x, 0] == var: 
+                  return search_tree.iloc[x,:]
+              else: 
+                  return -1
+    return -1
 
-    # Adding description of section to ncs_sections
-    # ncs_sections = [ [
-    #     ['SW', 'SAMPLING WEIGHTS', 1, ncs1.columns.get_loc('P1FWT'), ncs1.columns.get_loc('P2TOBWT')],
-    #     ['a', 'ACTIVITIES OF DAILY LIFE', 1, ncs1.columns.get_loc('V101'), ncs1.columns.get_loc('V250')],
-    #     ['b', 'LIFETIME MOODS AND HEALTH BEHAVIORS', 1, ncs1.columns.get_loc('V301'), ncs1.columns.get_loc('V948')], 
-    #     ['c', 'ONGOING SADNESS', 1,  ncs1.columns.get_loc('V1001'), ncs1.columns.get_loc('V1016')], 
-    #     ['d', 'SADNESS', 1, ncs1.columns.get_loc('V1101'), ncs1.columns.get_loc('V1559')], 
-    #     ['e', 'MANIA', 1, ncs1.columns.get_loc('V1601'), ncs1.columns.get_loc('V1757')], 
-    #     ['f', 'ALCOHOL', 1, ncs1.columns.get_loc('V1801'), ncs1.columns.get_loc('V1816')], 
-    #     ['g', 'MEDICATION & DRUGS', 1, ncs1.columns.get_loc('V1817'), ncs1.columns.get_loc('V3757')], 
-    #     ['h', 'PROBLEM BEHAVIORS', 1, ncs1.columns.get_loc('V3801'), ncs1.columns.get_loc('V3817')], 
-    #     ['j', 'DEMOGRAPHICS', 1, ncs1.columns.get_loc('V3901'), ncs1.columns.get_loc('V3936')], 
-    #     ['aa', 'INTERVIEWER\'S OBSERVATIONS', 1, ncs1.columns.get_loc('V4000'), ncs1.columns.get_loc('V4053')], 
-    #     ['p2wtv3', 'SURVEY ADMINISTRATION', 2, ncs1.columns.get_loc('P2WTV3'), ncs1.columns.get_loc('V4100')], 
-    #     ['k', 'BELIEFS AND EXPERIENCES', 2, ncs1.columns.get_loc('V4101'), ncs1.columns.get_loc('V4341')], 
-    #     ['l', 'PERSONALITY', 2, ncs1.columns.get_loc('V4401'), ncs1.columns.get_loc('V4447')], 
-    #     ['m', 'MARRIAGE', 2, ncs1.columns.get_loc('V4501'), ncs1.columns.get_loc('V4629')], 
-    #     ['n', 'EMPLOYMENT', 2, ncs1.columns.get_loc('V4701'), ncs1.columns.get_loc('V4824')], 
-    #     ['p', 'HOME AND WORK', 2, ncs1.columns.get_loc('V4901'), ncs1.columns.get_loc('V4917')], 
-    #     ['q', 'CHILDREN', 2, ncs1.columns.get_loc('V5001'), ncs1.columns.get_loc('V5059')], 
-    #     ['r', 'SELF-DESCRIPTION', 2, ncs1.columns.get_loc('V5101'), ncs1.columns.get_loc('V5134')], 
-    #     ['s', 'HEALTH', 2, ncs1.columns.get_loc('V5201'), ncs1.columns.get_loc('V5938')], 
-    #     ['t', 'FINANCES', 2, ncs1.columns.get_loc('V6001'), ncs1.columns.get_loc('V6019')], 
-    #     ['u', 'LIFE EVENT HISTORY', 2, ncs1.columns.get_loc('V6101'), ncs1.columns.get_loc('V6318')], 
-    #     ['v', 'RECENT LIFE EVENTS', 2, ncs1.columns.get_loc('V6401'), ncs1.columns.get_loc('V6541')], 
-    #     ['x', 'FAMILY HISTORY', 2, ncs1.columns.get_loc('V6601'), ncs1.columns.get_loc('V7028')],
-    #     ['y', 'RELIGION', 2, ncs1.columns.get_loc('V7101'), ncs1.columns.get_loc('V7110')], 
-    #     ['z', 'RACIAL AND ETHNIC BACKGROUND', 2, ncs1.columns.get_loc('V7111'), ncs1.columns.get_loc('V7141')], 
-    #     ['bb', 'INTERVIEWER\'S OBSERVATIONS', 2, ncs1.columns.get_loc('V7200'), ncs1.columns.get_loc('V732')],
-    #     ['tobw', 'TOBACCO USE SUPPLEMENT FREQUENCIES', 2, ncs1.columns.get_loc('TOBACWT'), ncs1.columns.get_loc('V7442')]
-    #     ]
-    #     ]
+  def build_tree(self): 
+    #This builds an object representing variable names and all of their desriptions. format is as follows: 
+    # 1. root holds top level varnames & description & location in tree_list[] list
+    # 2. tree.root.iloc[n, 0] holds the next level varnames, description, and either location in tree_list[] list or REF value if given
+    # 3. tree.(tree.root.iloc[n,0]).iloc[n,0] varies. For some is is the final level with a 1D list with the column index from self.survey, for others it is the varname for another level
+    # If this level exists it generally represents the final information 
+    # To traverse the object: 
+    # eval('tree.' + varnamestring)
+    # LVL1 EX: eval('tree.' + root.iloc[4, 0])
+    # LVL2 EX: eval('tree.' + eval('tree.' + root.iloc[4, 0] + ".iloc[0,0]"))
+    for i in range(0, len(self.tree_list)):
+        varname = re.sub('[^ A-Za-z0-9]+', '', self.tree_list[i][0])
+        varname = re.sub('[ ]+', '_', varname)
+          # Get Variable name
+        if i <= 30:
+          #all data for the questionnaire is in the first 30 sections
+          start_end = self.get_tree_obj_array(varname, self.tree_list[i], 0)
+          self.root.loc[len(self.root)] = [varname , self.tree_list[i][0], i, 'survey', start_end[0], start_end[1]]
+            # Add info to root so that we can traverse object later
+        else:
+          start_end = self.get_tree_obj_array(varname, self.tree_list[i], 1)
+          self.root.loc[len(self.root)] = [varname , self.tree_list[i][0], i, 'dxdm', start_end[0], start_end[1]]
+            # Add info to root so that we can traverse object later
 
-    # ncs_sections_columns = ('Label', 'Subject', 'Part', 'Start', 'End')
+  def get_tree_obj_array(self, var, tl, dxdm_flag):
+    # function used to turn self.root.tree from giant list to traversable object
+    start = 10000000
+    end = -10000000
+      # initialize start & end to -10000000 so they throw errors if not changed
+      # start & end used in search_for_description for easy search
+    tmpDF = pd.DataFrame(columns = ['VarName', 'Description', 'Root_DF', 'Start', 'End', 'DataFrame', 'recursion_flag'])
+      # recursion flag to know if there is another level of the root tree that holds variables
+    for x in range(3, len(tl)):
+        # starts at 3 because tree includes unused flags 
+        if len(tl[x]) > 3: 
+            # If List has sublists
+            # All subtrees larger than 3 have sublists
+            var2 = re.sub('[^ A-Za-z0-9]+', '', tl[x][0])
+            var2 = re.sub('[ ]+', '_', var2)
+              #Make sublist variable name by removing spaces and special characters
+            start_end = self.get_tree_obj_array(var2, tl[x], dxdm_flag)
+              # Recursively call function for next level
+            if x == 3: 
+                start = start_end[0]
+                # first iteration gives start value
+            if x+1 == len(tl):
+                end = start_end[1]
+                # last itereation gives end value
+            if dxdm_flag: 
+                tmpDF.loc[len(tmpDF)] = [var2, tl[x][0], var, start_end[0], start_end[1], 'dxdm', 1]
+            else:
+                tmpDF.loc[len(tmpDF)] = [var2, tl[x][0], var, start_end[0], start_end[1], 'survey', 1]
+            # set row
+        elif not dxdm_flag:
+            #if dxdm flag is false it is the survey dataset DS0001
+            if x == 3: 
+                start = self.survey.columns.get_loc(tl[x][0])
+                # first iteration gives start value
+            if x+1 == len(tl):
+                end = self.survey.columns.get_loc(tl[x][0])
+            #start and end values are the the location of the varnames at 3 and the end of the list
+               #^^^^ Find return values for parent node
 
+            tmpDF.loc[len(tmpDF)] = [tl[x][0], tl[x][1], var, self.survey.columns.get_loc(tl[x][0]), self.survey.columns.get_loc(tl[x][0]), 'survey', 0]
+            # iterate through list and add rows to df
+        else:  
+            # otherwise the values are part of the dxdm or DS0002 dataset
+            if self.dxdm.columns.get_loc(tl[x][0]) < start: 
+                start = self.dxdm.columns.get_loc(tl[x][0])
+                # first iteration gives start value
+            if self.dxdm.columns.get_loc(tl[x][0]) > end:
+                end = self.dxdm.columns.get_loc(tl[x][0])
+            #start and end values are the the location of the varnames at 3 and the end of the list
+              #^^^^ Find return values for parent node
 
+            tmpDF.loc[len(tmpDF)] = [tl[x][0], tl[x][1], var, self.dxdm.columns.get_loc(tl[x][0]), self.dxdm.columns.get_loc(tl[x][0]), 'dxdm', 0]
+                # iterate through list and add rows to df
+    
+    tmpDF = pd.DataFrame(data = tmpDF, columns = ['VarName', 'Description', 'Root_DF', 'Start', 'End', 'DataFrame', 'recursion_flag'])
+
+    setattr(self.tree, var, tmpDF)
+    return (start, end)
+
+# Gotten from:
 # http://www.icpsr.umich.edu/SDA/NAHDAP/06693-0003/CODEBOOK/tree_items.js
 
-# "(V\d+) - ([\w\d    \(\):\-\+\'\"\.\/@#&%;,]+[\d\)\w:#\?\+;])[\ ]+REF=
+# Regexes Used: 
+  # "(V\d+) - ([\w\d    \(\):\-\+\'\"\.\/@#&%;,]+[\d\)\w:#\?\+;])[\ ]+REF=
+  # "(\w*\d*) - ([\w\d    \(\):\-\+\'\"\.\/@#&%;,]+[\d\)\w:#\?\+;])[\ ]+REF=
+  # "(\w*\d*) - ([\w\d    \(\):\-\+\'\"\.\/@#&%;,]+)", "java
+  # , "javascript:top.tf.tnode\('[\w\d]+'\)"],
+  # NOTE: Also scanned through and made appropriate changes
 
-# "(\w*\d*) - ([\w\d    \(\):\-\+\'\"\.\/@#&%;,]+[\d\)\w:#\?\+;])[\ ]+REF=
-
-# "(\w*\d*) - ([\w\d    \(\):\-\+\'\"\.\/@#&%;,]+)", "java
-
-# , "javascript:top.tf.tnode\('[\w\d]+'\)"],
-
-    tree = [
+  def get_tree_list(self):
+    return [
   ["CASE IDENTIFICATION VARIABLES", 0, 0,
     ["CASEID", "case id", "REF=   1 ID=DDE"],
     ],
 
   ["DIAGNOSTIC INTERVIEW | SURVEY ADMINISTRATION/FACESHEET", 0, 0,
-  ["V2", "2: sample id   (8)", "REF=   2 ID=DDE"],
-  ["V3", "2a: rotation   (1-8)", "REF=   3 ID=DDE"],
-  ["V4", "1: interviewer's id", "REF=   4 ID=DDE"],
-  ["V5", "4:date iw (start)-month", "REF=   5 ID=DDE"],
-  ["V6", "4:date iw (start)-day", "REF=   6 ID=DDE"],
-  ["V7", "4:date iw (start)-year", "REF=   7 ID=DDE"],
-  ["V8", "4:date iw (end) - month", "REF=   8 ID=DDE"],
-  ["V9", "4:date iw (end) - day", "REF=   9 ID=DDE"],
-  ["V10", "4:date iw (end) - year", "REF=  10 ID=DDE"],
-  ["V11", "5: length of iw", "REF=  11 ID=DDE"],
-  ["V12", "R's age", "REF=  12 ID=DDE"],
-  ["V13", "R's sex (from HH list)", "REF=  13 ID=DDE"],
-  ["V14", "R's marital stat(HHlist)", "REF=  14 ID=DDE"],
-  ["V15", "# persons in HH(any age)", "REF=  15 ID=DDE"],
-  ],
+    ["V2", "2: sample id   (8)", "REF=   2 ID=DDE"],
+    ["V3", "2a: rotation   (1-8)", "REF=   3 ID=DDE"],
+    ["V4", "1: interviewer's id", "REF=   4 ID=DDE"],
+    ["V5", "4:date iw (start)-month", "REF=   5 ID=DDE"],
+    ["V6", "4:date iw (start)-day", "REF=   6 ID=DDE"],
+    ["V7", "4:date iw (start)-year", "REF=   7 ID=DDE"],
+    ["V8", "4:date iw (end) - month", "REF=   8 ID=DDE"],
+    ["V9", "4:date iw (end) - day", "REF=   9 ID=DDE"],
+    ["V10", "4:date iw (end) - year", "REF=  10 ID=DDE"],
+    ["V11", "5: length of iw", "REF=  11 ID=DDE"],
+    ["V12", "R's age", "REF=  12 ID=DDE"],
+    ["V13", "R's sex (from HH list)", "REF=  13 ID=DDE"],
+    ["V14", "R's marital stat(HHlist)", "REF=  14 ID=DDE"],
+    ["V15", "# persons in HH(any age)", "REF=  15 ID=DDE"],
+    ],
 
   ["DIAGNOSTIC INTERVIEW | SECTION A: ACTIVITIES OF DAILY LIFE", 0, 0,
 
-  ["SOCIAL LIFE - HEALTH", 0, 0,
-    ["V101", "a1:rate physical health", "REF= 101 ID=DDE"],
-    ["V102", "a2:rate mental health", "REF= 102 ID=DDE"],
-    ["V103", "a3:rate health vs.others", "REF= 103 ID=DDE"],
-    ["V104", "a5:freq balanced meals", "REF= 104 ID=DDE"],
-    ["V105", "a6:#hrs sleep in 24 hrs", "REF= 105 ID=DDE"],
-    ["V106", "a7:freq regular exercise", "REF= 106 ID=DDE"],
-    ["V107", "a8:chkpt-spouse in HH", "REF= 107 ID=DDE"],
-    ],
+    ["SOCIAL LIFE - HEALTH", 0, 0,
+      ["V101", "a1:rate physical health", "REF= 101 ID=DDE"],
+      ["V102", "a2:rate mental health", "REF= 102 ID=DDE"],
+      ["V103", "a3:rate health vs.others", "REF= 103 ID=DDE"],
+      ["V104", "a5:freq balanced meals", "REF= 104 ID=DDE"],
+      ["V105", "a6:#hrs sleep in 24 hrs", "REF= 105 ID=DDE"],
+      ["V106", "a7:freq regular exercise", "REF= 106 ID=DDE"],
+      ["V107", "a8:chkpt-spouse in HH", "REF= 107 ID=DDE"],
+      ],
 
-  ["SOCIAL LIFE - MARRIAGE &amp; PARTNERSHIP", 0, 0,
-    ["V108", "a9:R's marital status", "REF= 108 ID=DDE"],
-    ["V109", "a9a:livng mrriag-likerel", "REF= 109 ID=DDE"],
-    ["V110", "a9b:spouse lives here", "REF= 110 ID=DDE"],
-    ["V111", "a9c:where does spouslive", "REF= 111 ID=DDE"],
-    ["V112", "a9d:#time sps live there", "REF= 112 ID=DDE"],
-    ["V113", "a9d:per'd time sps there", "REF= 113 ID=DDE"],
-    ["V114", "a9e:freq contact w/spous", "REF= 114 ID=DDE"],
-    ["V201", "a10:spous cares for R", "REF= 201 ID=DDE"],
-    ["V202", "a11:spouse understands R", "REF= 202 ID=DDE"],
-    ["V203", "a12:spouse appreciates R", "REF= 203 ID=DDE"],
-    ["V204", "a13:rely on spous w/prbl", "REF= 204 ID=DDE"],
-    ["V205", "a14:openup/discs w/spous", "REF= 205 ID=DDE"],
-    ["V206", "a15:relax/bself w/spouse", "REF= 206 ID=DDE"],
-    ["V207", "a16:freq sp demands on R", "REF= 207 ID=DDE"],
-    ["V208", "a17:freq sp makes R tens", "REF= 208 ID=DDE"],
-    ["V209", "a18:freq sp argues w/R", "REF= 209 ID=DDE"],
-    ["V210", "a19:freq sp criticizes R", "REF= 210 ID=DDE"],
-    ["V211", "a20:freq sp lets R down", "REF= 211 ID=DDE"],
-    ["V212", "a21:freq sp on R's nervs", "REF= 212 ID=DDE"],
-    ],
+    ["SOCIAL LIFE - MARRIAGE &amp; PARTNERSHIP", 0, 0,
+      ["V108", "a9:R's marital status", "REF= 108 ID=DDE"],
+      ["V109", "a9a:livng mrriag-likerel", "REF= 109 ID=DDE"],
+      ["V110", "a9b:spouse lives here", "REF= 110 ID=DDE"],
+      ["V111", "a9c:where does spouslive", "REF= 111 ID=DDE"],
+      ["V112", "a9d:#time sps live there", "REF= 112 ID=DDE"],
+      ["V113", "a9d:per'd time sps there", "REF= 113 ID=DDE"],
+      ["V114", "a9e:freq contact w/spous", "REF= 114 ID=DDE"],
+      ["V201", "a10:spous cares for R", "REF= 201 ID=DDE"],
+      ["V202", "a11:spouse understands R", "REF= 202 ID=DDE"],
+      ["V203", "a12:spouse appreciates R", "REF= 203 ID=DDE"],
+      ["V204", "a13:rely on spous w/prbl", "REF= 204 ID=DDE"],
+      ["V205", "a14:openup/discs w/spous", "REF= 205 ID=DDE"],
+      ["V206", "a15:relax/bself w/spouse", "REF= 206 ID=DDE"],
+      ["V207", "a16:freq sp demands on R", "REF= 207 ID=DDE"],
+      ["V208", "a17:freq sp makes R tens", "REF= 208 ID=DDE"],
+      ["V209", "a18:freq sp argues w/R", "REF= 209 ID=DDE"],
+      ["V210", "a19:freq sp criticizes R", "REF= 210 ID=DDE"],
+      ["V211", "a20:freq sp lets R down", "REF= 211 ID=DDE"],
+      ["V212", "a21:freq sp on R's nervs", "REF= 212 ID=DDE"],
+      ],
 
-  ["SOCIAL LIFE - RELATIVES", 0, 0,
-    ["V213", "a22:freq contct w/relatv", "REF= 213 ID=DDE"],
-    ["V214", "a23:relatives care for R", "REF= 214 ID=DDE"],
-    ["V215", "a24:relatvs understand R", "REF= 215 ID=DDE"],
-    ["V216", "a25:relatvs appreciate R", "REF= 216 ID=DDE"],
-    ["V217", "a26:rely on reltv w/prbl", "REF= 217 ID=DDE"],
-    ["V218", "a27:openup/disc w/relatv", "REF= 218 ID=DDE"],
-    ["V219", "a28:relax/bself w/relatv", "REF= 219 ID=DDE"],
-    ["V220", "a29:freq rltv demand onR", "REF= 220 ID=DDE"],
-    ["V221", "a30:freq rltv make Rtens", "REF= 221 ID=DDE"],
-    ["V222", "a31:freq argue w/relativ", "REF= 222 ID=DDE"],
-    ["V223", "a32:freq reltv criticize", "REF= 223 ID=DDE"],
-    ["V224", "a33:freq rltv let R down", "REF= 224 ID=DDE"],
-    ["V225", "a34:freq reltiv on nervs", "REF= 225 ID=DDE"],
-    ["V226", "a35:freq contct w/friend", "REF= 226 ID=DDE"],
-    ],
+    ["SOCIAL LIFE - RELATIVES", 0, 0,
+      ["V213", "a22:freq contct w/relatv", "REF= 213 ID=DDE"],
+      ["V214", "a23:relatives care for R", "REF= 214 ID=DDE"],
+      ["V215", "a24:relatvs understand R", "REF= 215 ID=DDE"],
+      ["V216", "a25:relatvs appreciate R", "REF= 216 ID=DDE"],
+      ["V217", "a26:rely on reltv w/prbl", "REF= 217 ID=DDE"],
+      ["V218", "a27:openup/disc w/relatv", "REF= 218 ID=DDE"],
+      ["V219", "a28:relax/bself w/relatv", "REF= 219 ID=DDE"],
+      ["V220", "a29:freq rltv demand onR", "REF= 220 ID=DDE"],
+      ["V221", "a30:freq rltv make Rtens", "REF= 221 ID=DDE"],
+      ["V222", "a31:freq argue w/relativ", "REF= 222 ID=DDE"],
+      ["V223", "a32:freq reltv criticize", "REF= 223 ID=DDE"],
+      ["V224", "a33:freq rltv let R down", "REF= 224 ID=DDE"],
+      ["V225", "a34:freq reltiv on nervs", "REF= 225 ID=DDE"],
+      ["V226", "a35:freq contct w/friend", "REF= 226 ID=DDE"],
+      ],
 
-  ["SOCIAL LIFE - FRIENDS", 0, 0,
-    ["V227", "a36:friends care for R", "REF= 227 ID=DDE"],
-    ["V228", "a37:friends understand R", "REF= 228 ID=DDE"],
-    ["V229", "a38:friends appreciate R", "REF= 229 ID=DDE"],
-    ["V230", "a39:rely on frend w/prbl", "REF= 230 ID=DDE"],
-    ["V231", "a40:openup/disc w/friend", "REF= 231 ID=DDE"],
-    ["V232", "a41:relax/bself w/friend", "REF= 232 ID=DDE"],
-    ["V233", "a42:freq frnd demnds onR", "REF= 233 ID=DDE"],
-    ["V234", "a43:freq frnd make Rtens", "REF= 234 ID=DDE"],
-    ["V235", "a44:freq argue w/friends", "REF= 235 ID=DDE"],
-    ["V236", "a45:freq frend criticize", "REF= 236 ID=DDE"],
-    ["V237", "a46:freq frnd let R down", "REF= 237 ID=DDE"],
-    ["V238", "a47:freq frnd on Rnerves", "REF= 238 ID=DDE"],
-    ["V239", "a48:ckpt-R livng w/spous", "REF= 239 ID=DDE"],
-    ["V240", "a48a:anyone openup with", "REF= 240 ID=DDE"],
-    ["V241", "a48b:open relshp w/spous", "REF= 241 ID=DDE"],
-    ["V242", "a48c/d:#peopl open relsh", "REF= 242 ID=DDE"],
-    ["V243", "a48e:anyone open relship", "REF= 243 ID=DDE"],
-    ["V244", "a48f:#peopl open relship", "REF= 244 ID=DDE"],
-    ],
+    ["SOCIAL LIFE - FRIENDS", 0, 0,
+      ["V227", "a36:friends care for R", "REF= 227 ID=DDE"],
+      ["V228", "a37:friends understand R", "REF= 228 ID=DDE"],
+      ["V229", "a38:friends appreciate R", "REF= 229 ID=DDE"],
+      ["V230", "a39:rely on frend w/prbl", "REF= 230 ID=DDE"],
+      ["V231", "a40:openup/disc w/friend", "REF= 231 ID=DDE"],
+      ["V232", "a41:relax/bself w/friend", "REF= 232 ID=DDE"],
+      ["V233", "a42:freq frnd demnds onR", "REF= 233 ID=DDE"],
+      ["V234", "a43:freq frnd make Rtens", "REF= 234 ID=DDE"],
+      ["V235", "a44:freq argue w/friends", "REF= 235 ID=DDE"],
+      ["V236", "a45:freq frend criticize", "REF= 236 ID=DDE"],
+      ["V237", "a46:freq frnd let R down", "REF= 237 ID=DDE"],
+      ["V238", "a47:freq frnd on Rnerves", "REF= 238 ID=DDE"],
+      ["V239", "a48:ckpt-R livng w/spous", "REF= 239 ID=DDE"],
+      ["V240", "a48a:anyone openup with", "REF= 240 ID=DDE"],
+      ["V241", "a48b:open relshp w/spous", "REF= 241 ID=DDE"],
+      ["V242", "a48c/d:#peopl open relsh", "REF= 242 ID=DDE"],
+      ["V243", "a48e:anyone open relship", "REF= 243 ID=DDE"],
+      ["V244", "a48f:#peopl open relship", "REF= 244 ID=DDE"],
+      ],
 
-  ["SOCIAL LIFE - WHO DO YOU TURN TO?", 0, 0,
-    ["V245", "a49:freq tel spous worry", "REF= 245 ID=DDE"],
-    ["V246", "a50:freq tel other worry", "REF= 246 ID=DDE"],
-    ["V247", "a51:easy get closew/othr", "REF= 247 ID=DDE"],
-    ["V248", "a52:diffclt close w/othr", "REF= 248 ID=DDE"],
-    ["V249", "a53:others reluctant w/R", "REF= 249 ID=DDE"],
-    ],
+    ["SOCIAL LIFE - WHO DO YOU TURN TO?", 0, 0,
+      ["V245", "a49:freq tel spous worry", "REF= 245 ID=DDE"],
+      ["V246", "a50:freq tel other worry", "REF= 246 ID=DDE"],
+      ["V247", "a51:easy get closew/othr", "REF= 247 ID=DDE"],
+      ["V248", "a52:diffclt close w/othr", "REF= 248 ID=DDE"],
+      ["V249", "a53:others reluctant w/R", "REF= 249 ID=DDE"],
+      ],
 
-  ["CHECKPOINT - WILLING TO GO ON WITH INTERVIEW?", 0, 0,
-    ["V250", "a54:willing to answr q's", "REF= 250 ID=DDE"],
-    ],
+    ["CHECKPOINT - WILLING TO GO ON WITH INTERVIEW?", 0, 0,
+      ["V250", "a54:willing to answr q's", "REF= 250 ID=DDE"],
+      ],
   ],
 
   ["DIAGNOSTIC INTERVIEW | SECTION B: LIFETIME MOODS AND HEALTH BEHAVIORS", 0, 0,
