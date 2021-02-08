@@ -1,0 +1,255 @@
+{
+	"identifier": {
+		"identifier": "10.3886/ICPSR06693.v6",
+		"identifierSource": "https://www.icpsr.umich.edu/",
+		"@type": "Identifier"
+	},
+	"alternateIdentifiers": [
+		{
+			"identifier": "6693",
+			"identifierSource": "ICPSR Study Number",
+			"@type": "AlternateIdentifier"
+		}
+	],
+	"title": "National Comorbidity Survey: Baseline (NCS-1), 1990-1992",
+	"description": "The National Comorbidity Survey: Baseline (NCS-1) was a collaborative epidemiologic investigation designed to study the prevalence and correlates of DSM III-R disorders and patterns and correlates of service utilization for these disorders. The NCS-1 was the first survey to administer a structured psychiatric interview to a nationally representative sample. The survey was carried out in the early 1990s with a household sample of over 8,000 respondents. Subsamples of the original respondents completed the NCS-1 Part II survey and Tobacco Use Supplement. Diagnoses were based on a modified version of the Composite International Diagnostic Interview (the UM-CIDI), which was developed at the University of Michigan for the NCS-1. Drugs covered by this survey include alcohol, tobacco, sedatives, stimulants, tranquilizers, analgesics, inhalants, marijuana/hashish, cocaine, hallucinogens, heroin, nonmedical use of prescription drugs, and polysubstance use. Other items include demographic characteristics, personal and family history of substance use and abuse, substance abuse treatment, data on drug use including recency, frequency, and age at first use, problems resulting from the use of drugs, personal and family history of psychiatric problems, mental health treatment, symptoms of psychiatric disorders, mental health status, HIV risk behaviors, and physical health status.",
+	"types": [
+		{
+			"information": {
+				"value": "survey data",
+				"@type": "Annotation"
+			},
+			"@type": "DataType"
+		}
+	],
+	"availability": "Unable to determine availability of this dataset version.",
+	"distributions": [
+		{
+			"storedIn": {
+				"name": "Inter-university Consortium for Political and Social Research",
+				"types": [
+					{
+						"value": "primary resource",
+						"@type": "Annotation"
+					}
+				],
+				"@type": "DataRepository"
+			},
+			"dates": [
+				{
+					"date": "2000-05-01T04:00:00Z",
+					"type": {
+						"value": "initial release date",
+						"@type": "Annotation"
+					},
+					"@type": "Date"
+				},
+				{
+					"date": "2008-09-12T14:18:10Z",
+					"type": {
+						"value": "modification date",
+						"@type": "Annotation"
+					},
+					"@type": "Date"
+				}
+			],
+			"version": "V6",
+			"licenses": [
+				{
+					"name": "ICPSR Terms of Use",
+					"@type": "License"
+				}
+			],
+			"access": {
+				"landingPage": "10.3886/ICPSR06693.v6",
+				"types": [
+					{
+						"value": "download",
+						"@type": "Annotation"
+					}
+				],
+				"authorizations": [
+					{
+						"value": "clickLicense",
+						"@type": "Annotation"
+					}
+				],
+				"authentications": [
+					null
+				],
+				"@type": "Access"
+			},
+			"conformsTo": [
+				{
+					"name": "DDI",
+					"description": "Metadata are prepared using Data Documentation Intitiative Codebook 2.5.",
+					"@type": "DataStandard"
+				}
+			],
+			"size": 0,
+			"@type": "DatasetDistribution"
+		}
+	],
+	"citationCount": 0,
+	"creators": [
+		{
+			"fullName": "Kessler, Ronald C.",
+			"firstName": "Ronald C.",
+			"lastName": "Kessler",
+			"affiliations": [
+				{
+					"name": "University of Michigan. Institute for Social Research. Survey Research Center",
+					"@type": "Organization"
+				}
+			],
+			"@type": "Person"
+		}
+	],
+	"acknowledges": [
+		{
+			"identifier": {
+				"identifier": "R01 MH/DA46376, R01 MH49098 (NIMH)",
+				"identifierSource": "United States Department of Health and Human Services. National Institutes of Health. National Institute of Mental Health",
+				"@type": "Identifier"
+			},
+			"name": "United States Department of Health and Human Services. National Institutes of Health. National Institute of Mental Health",
+			"@type": "Grant"
+		},
+		{
+			"identifier": {
+				"identifier": "supplement to R01 MH/DA46376 (NIDA)",
+				"identifierSource": "United States Department of Health and Human Services. National Institutes of Health. National Institute on Drug Abuse",
+				"@type": "Identifier"
+			},
+			"name": "United States Department of Health and Human Services. National Institutes of Health. National Institute on Drug Abuse",
+			"@type": "Grant"
+		},
+		{
+			"identifier": {
+				"identifier": "90135190 (W.T. Grant Foundation)",
+				"identifierSource": "William T. Grant Foundation",
+				"@type": "Identifier"
+			},
+			"name": "William T. Grant Foundation",
+			"@type": "Grant"
+		}
+	],
+	"keywords": [
+		{
+			"value": "alcohol",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=alcohol",
+			"@type": "Annotation"
+		},
+		{
+			"value": "alcohol consumption",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=alcohol+consumption",
+			"@type": "Annotation"
+		},
+		{
+			"value": "cocaine",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=cocaine",
+			"@type": "Annotation"
+		},
+		{
+			"value": "drug use",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=drug+use",
+			"@type": "Annotation"
+		},
+		{
+			"value": "drugs",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=drugs",
+			"@type": "Annotation"
+		},
+		{
+			"value": "hallucinogens",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=hallucinogens",
+			"@type": "Annotation"
+		},
+		{
+			"value": "health status",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=health+status",
+			"@type": "Annotation"
+		},
+		{
+			"value": "heroin",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=heroin",
+			"@type": "Annotation"
+		},
+		{
+			"value": "inhalants",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=inhalants",
+			"@type": "Annotation"
+		},
+		{
+			"value": "marijuana",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=marijuana",
+			"@type": "Annotation"
+		},
+		{
+			"value": "mental disorders",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=mental+disorders",
+			"@type": "Annotation"
+		},
+		{
+			"value": "mental health",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=mental+health",
+			"@type": "Annotation"
+		},
+		{
+			"value": "mental health services",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=mental+health+services",
+			"@type": "Annotation"
+		},
+		{
+			"value": "prescription drugs",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=prescription+drugs",
+			"@type": "Annotation"
+		},
+		{
+			"value": "psychiatric services",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=psychiatric+services",
+			"@type": "Annotation"
+		},
+		{
+			"value": "sedatives",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=sedatives",
+			"@type": "Annotation"
+		},
+		{
+			"value": "self medication",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=self+medication",
+			"@type": "Annotation"
+		},
+		{
+			"value": "smoking",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=smoking",
+			"@type": "Annotation"
+		},
+		{
+			"value": "stimulants",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=stimulants",
+			"@type": "Annotation"
+		},
+		{
+			"value": "substance abuse",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=substance+abuse",
+			"@type": "Annotation"
+		},
+		{
+			"value": "tobacco products",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=tobacco+products",
+			"@type": "Annotation"
+		},
+		{
+			"value": "tobacco use",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=tobacco+use",
+			"@type": "Annotation"
+		},
+		{
+			"value": "tranquilizers",
+			"valueIRI": "http://www.icpsr.umich.edu/icpsrweb/ICPSR/thesaurus/entry?topic=subject&entry=tranquilizers",
+			"@type": "Annotation"
+		}
+	],
+	"@type": "Dataset"
+}
