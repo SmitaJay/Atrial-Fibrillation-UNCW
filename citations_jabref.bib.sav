@@ -1,0 +1,38 @@
+% Encoding: UTF-8
+
+@Article{cramer2010comorbidity,
+  author    = {Cramer, Ang{\'e}lique OJ and Waldorp, Lourens J and Van Der Maas, Han LJ and Borsboom, Denny},
+  journal   = {Behavioral and brain sciences},
+  title     = {Comorbidity: A network perspective},
+  year      = {2010},
+  number    = {2-3},
+  pages     = {137},
+  volume    = {33},
+  abstract  = {The pivotal problem of comorbidity research lies in the psychometric foundation it rests on, that is,latent variable theory,inwhich a mental disorder is viewed as a latent variable thatcausesa constellation of symptoms. From this perspective, comorbidity is a (bi)directional relationship between multiple latent variables. We argue that such a latent variable perspective encounters seriousproblems in the study of comorbidity, and offer a radically different conceptualization in terms of anetwork approach, wherecomorbidity is hypothesized to arise from direct relations between symptoms of multiple disorders. We propose a method tovisualize comorbidity networks and, based on an empirical network for major depression and generalized anxiety, we argue that thisapproach generates realistic hypotheses about pathways to comorbidity, overlapping symptoms, and diagnostic boundaries, that arenot naturally accommodated by latent variable models: Some pathways to comorbidity through thesymptom spaceare more likelythan others; those pathways generally have the same direction (i.e., from symptoms of one disorder to symptoms of the other);overlapping symptoms play an important role in comorbidity; and boundaries between diagnostic categories are necessarily fuzzy.},
+  file      = {:C\:/Users/galyn/Documents/Seminar/Is-there-a-contradiction-between-the-network-and-latent-variable-perspectives.pdf:PDF},
+  keywords  = {comorbidity; complex networks; generalized anxiety; latent variable models; major depression},
+  publisher = {Cambridge University Press},
+  url       = {https://www.researchgate.net/profile/Joshua_Mcgrane2/publication/44806073_Is_there_a_contradiction_between_the_network_and_latent_variable_perspectives/links/5ab52e82a6fdcc46d3b2dffc/Is-there-a-contradiction-between-the-network-and-latent-variable-perspectives.pdf},
+}
+
+@InProceedings{qian2020learning,
+  author       = {Qian, Zhaozhi and Alaa, Ahmed and Bellot, Alexis and Schaar, Mihaela and Rashbass, Jem},
+  booktitle    = {International Conference on Artificial Intelligence and Statistics},
+  title        = {Learning dynamic and personalized comorbidity networks from event data using deep diffusion processes},
+  year         = {2020},
+  organization = {PMLR},
+  pages        = {3295--3305},
+}
+
+@Article{brunson2020sensitivity,
+  author    = {Brunson, Jason Cory and Agresta, Thomas P and Laubenbacher, Reinhard C},
+  journal   = {JAMIA open},
+  title     = {Sensitivity of comorbidity network analysis},
+  year      = {2020},
+  number    = {1},
+  pages     = {94--103},
+  volume    = {3},
+  publisher = {Oxford University Press},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
