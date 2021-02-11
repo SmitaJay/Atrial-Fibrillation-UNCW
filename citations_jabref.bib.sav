@@ -97,4 +97,13 @@
   publisher = {BMJ Group BMA House, Tavistock Square, London, WC1H 9JR},
 }
 
+@Misc{neil2016phased,
+  author        = {Daniel Neil and Michael Pfeiffer and Shih-Chii Liu},
+  title         = {Phased LSTM: Accelerating Recurrent Network Training for Long or Event-based Sequences},
+  year          = {2016},
+  archiveprefix = {arXiv},
+  eprint        = {1610.09513},
+  primaryclass  = {cs.LG},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
