@@ -1,5 +1,7 @@
 import re
 import pandas as pd
+import json
+import pycurl
 
 class ncs_tsv_parse:
   # class to read in the ncs 06693 data & get it ready to use
@@ -63,12 +65,12 @@ class ncs1_data:
     self.tree = dataTree()
     self.build_tree()
 
-  def get_value_from_string(self, var, start_node = "self.tree."):
+  def get_value_from_string(self, var):
     # function to return next node from tree given the string
     try: 
-      return eval(start_node + var)
+      return eval("self.tree." + var)
     except:
-      print("Value " + var + "not found in " + start_node)
+      print("Value " + var + "not found in tree")
       return -1
 
   def search_for_description(self, var, dxdm_flag=-1, search_tree = pd.DataFrame(), lvl = 1, value = -99999999999999999):
