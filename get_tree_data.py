@@ -1,7 +1,8 @@
 import re
 import pandas as pd
 import json
-import pycurl
+import requests
+
 
 class ncs_tsv_parse:
   # class to read in the ncs 06693 data & get it ready to use
@@ -64,6 +65,32 @@ class ncs1_data:
     self.root = pd.DataFrame(columns = ['VarName', 'Description', 'Value', 'DataFrame', 'Start', 'End'])
     self.tree = dataTree()
     self.build_tree()
+
+  def get_variable_info(self, var, dxdm_flag = -1):
+    search_string = ""
+    if dxdm_flag == -1: 
+      try:
+        self.survey.columns.get_loc(var)
+        dxdm_flag = 0
+      except:
+        try:
+          self.dxdm.columns.get_loc(var)
+          dxdm_flag = 1
+        except: 
+          print("Variable " + var + " doesn't exist in the survey or DXDM")
+          return
+    
+    if dxdm_flag == 0:
+      search_string = 'https://pcms.icpsr.umich.edu/pcms/api/1.0/studies/06693/datasets/0001/variables/' + var
+    else: 
+      search_string = 'https://pcms.icpsr.umich.edu/pcms/api/1.0/studies/06693/datasets/0002/variables/' + var
+
+    try:
+      return requests.get(search_string).json()
+    except: 
+      print("Variable " + var + " didn't return a valid JSON from pcms.icpsr.umich.edu")
+      return -1
+
 
   def get_value_from_string(self, var):
     # function to return next node from tree given the string
