@@ -7,7 +7,7 @@ import requests
 class ncs_tsv_parse:
   # class to read in the ncs 06693 data & get it ready to use
 
-  def __init__(self):
+  def __init__(self,):
     self.survey = pd.read_csv("ICPSR_06693-V6/ICPSR_06693/DS0001/06693-0001-Data.tsv", sep = "\t")
     # data includes all of the symptom data from the NCS Data
     self.survey = pd.DataFrame(self.survey)
