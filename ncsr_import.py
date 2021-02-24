@@ -13,6 +13,26 @@ class ncs_tsv_parse:
     self.ncsr = pd.DataFrame(self.ncsr)
     self.ncsr.columns = self.ncsr.columns.map(str.upper)
 
+    self.ncsr = self.ncsr.reindex(self.sort_cols(), axis=1)
+    # reindex according to codebook, see get_tree_data.sort_DXDM_cols for more data
+
+
+  def sort_cols(self):
+    # NCSR (DS0002) columns are not in any order which hurt searching
+    # Prefixes are based on the DS0002 Codebook and successfully sort the data
+    # So that searching can be done efficiently
+    # Base on https://stackoverflow.com/a/10143711
+    sorted_cols = []
+    tree_list = get_tree_list()
+      # holds sorted columns
+    for i in range(0, len(tree_list)):
+      for x in range(3, len(tree_list[i])):
+        sorted_cols.append(tree_list[i][x][0])
+
+    return sorted_cols
+
+
+
 class dataTree : pass
   # ^ class to build our ncs1_data tree from. ncs1_data adds variables as necessary
 
@@ -21,7 +41,7 @@ class ncsr_data:
   def __init__(self):
     # initialize tree variables 
     # most important are dxdm,  survey, root, and tree
-    self.tree_list = self.get_tree_list()
+    self.tree_list = get_tree_list()
     self.ncsr = ncs_tsv_parse().ncsr
     self.root = pd.DataFrame(columns = ['VarName', 'Description', 'Value', 'DataFrame', 'Start', 'End'])
     self.tree = dataTree()
@@ -145,7 +165,8 @@ class ncsr_data:
   # \["([\V]+) - ([\V]+)", "j\V+"],
   # NOTE: Also scanned through and made appropriate changes
 
-  def get_tree_list(self):
+
+def get_tree_list():
     return  [
   ["Screening", 0, 0,
     ["SC7", "Smoker"],
