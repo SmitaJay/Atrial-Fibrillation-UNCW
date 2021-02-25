@@ -1,7 +1,7 @@
 import re
 import pandas as pd
 import json
-import requests
+import requests 
 
 
 class ncs_tsv_parse:
@@ -70,7 +70,7 @@ class ncsr_data:
     try: 
       return eval("self.tree." + var)
     except:
-      print("Value " + var + "not found in tree")
+      print("Value " + var + " not found in tree")
       return -1
 
   def search_for_description(self, var, search_tree = pd.DataFrame(), lvl = 1, value = -99999999999999999):
@@ -106,6 +106,8 @@ class ncsr_data:
     for i in range(0, len(self.tree_list)):
         varname = re.sub('[^ A-Za-z0-9]+', '', self.tree_list[i][0])
         varname = re.sub('[ ]+', '_', varname)
+        if re.match('^(\d)', varname):
+              varname = "var_" + varname
           # Get Variable name
         #all data for the questionnaire is in the first 30 sections
         start_end = self.get_tree_obj_array(varname, self.tree_list[i])
