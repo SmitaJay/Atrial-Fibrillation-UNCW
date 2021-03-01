@@ -1,0 +1,117 @@
+% Encoding: UTF-8
+
+@Article{cramer2010comorbidity,
+  author    = {Cramer, Ang{\'e}lique OJ and Waldorp, Lourens J and Van Der Maas, Han LJ and Borsboom, Denny},
+  journal   = {Behavioral and brain sciences},
+  title     = {Comorbidity: A network perspective},
+  year      = {2010},
+  number    = {2-3},
+  pages     = {137},
+  volume    = {33},
+  abstract  = {The pivotal problem of comorbidity research lies in the psychometric foundation it rests on, that is,latent variable theory,inwhich a mental disorder is viewed as a latent variable thatcausesa constellation of symptoms. From this perspective, comorbidity is a (bi)directional relationship between multiple latent variables. We argue that such a latent variable perspective encounters seriousproblems in the study of comorbidity, and offer a radically different conceptualization in terms of anetwork approach, wherecomorbidity is hypothesized to arise from direct relations between symptoms of multiple disorders. We propose a method tovisualize comorbidity networks and, based on an empirical network for major depression and generalized anxiety, we argue that thisapproach generates realistic hypotheses about pathways to comorbidity, overlapping symptoms, and diagnostic boundaries, that arenot naturally accommodated by latent variable models: Some pathways to comorbidity through thesymptom spaceare more likelythan others; those pathways generally have the same direction (i.e., from symptoms of one disorder to symptoms of the other);overlapping symptoms play an important role in comorbidity; and boundaries between diagnostic categories are necessarily fuzzy.},
+  file      = {:C\:/Users/galyn/Documents/Seminar/Is-there-a-contradiction-between-the-network-and-latent-variable-perspectives.pdf:PDF},
+  keywords  = {comorbidity; complex networks; generalized anxiety; latent variable models; major depression},
+  publisher = {Cambridge University Press},
+  url       = {https://www.researchgate.net/profile/Joshua_Mcgrane2/publication/44806073_Is_there_a_contradiction_between_the_network_and_latent_variable_perspectives/links/5ab52e82a6fdcc46d3b2dffc/Is-there-a-contradiction-between-the-network-and-latent-variable-perspectives.pdf},
+}
+
+@InProceedings{qian2020learning,
+  author       = {Qian, Zhaozhi and Alaa, Ahmed and Bellot, Alexis and Schaar, Mihaela and Rashbass, Jem},
+  booktitle    = {International Conference on Artificial Intelligence and Statistics},
+  title        = {Learning dynamic and personalized comorbidity networks from event data using deep diffusion processes},
+  year         = {2020},
+  organization = {PMLR},
+  pages        = {3295--3305},
+}
+
+@Article{brunson2020sensitivity,
+  author    = {Brunson, Jason Cory and Agresta, Thomas P and Laubenbacher, Reinhard C},
+  journal   = {JAMIA open},
+  title     = {Sensitivity of comorbidity network analysis},
+  year      = {2020},
+  number    = {1},
+  pages     = {94--103},
+  volume    = {3},
+  publisher = {Oxford University Press},
+}
+
+@Article{lanillos2020review,
+  author    = {Lanillos, Pablo and Oliva, Daniel and Philippsen, Anja and Yamashita, Yuichi and Nagai, Yukie and Cheng, Gordon},
+  journal   = {Neural Networks},
+  title     = {A review on neural network models of schizophrenia and autism spectrum disorder},
+  year      = {2020},
+  pages     = {338--363},
+  volume    = {122},
+  publisher = {Elsevier},
+}
+
+@Article{sherkatghanad2020automated,
+  author    = {Sherkatghanad, Zeinab and Akhondzadeh, Mohammadsadegh and Salari, Soorena and Zomorodi-Moghadam, Mariam and Abdar, Moloud and Acharya, U Rajendra and Khosrowabadi, Reza and Salari, Vahid},
+  journal   = {Frontiers in neuroscience},
+  title     = {Automated detection of autism spectrum disorder using a convolutional neural network},
+  year      = {2020},
+  pages     = {1325},
+  volume    = {13},
+  publisher = {Frontiers},
+}
+
+@Article{nair1999analysis,
+  author    = {Nair, Jyotsna and Nair, Satish S and Kashani, Javad H and Reid, John C and Mistry, Sanjay I and Vargas, Victor G},
+  journal   = {Psychiatry research},
+  title     = {Analysis of the symptoms of depression—a neural network approach},
+  year      = {1999},
+  number    = {2-3},
+  pages     = {193--201},
+  volume    = {87},
+  publisher = {Elsevier},
+}
+
+@Article{curiac2009bayesian,
+  author       = {Curiac, Daniel-Ioan and Vasile, Gabriel and Banias, Ovidiu and Volosencu, Constantin and Albu, Adriana},
+  title        = {Bayesian network model for diagnosis of psychiatric diseases},
+  year         = {2009},
+  pages        = {61--66},
+  booktitle    = {Proceedings of the ITI 2009 31st International Conference on Information Technology Interfaces},
+  organization = {IEEE},
+}
+
+@Article{bzdok2018machine,
+  author    = {Bzdok, Danilo and Meyer-Lindenberg, Andreas},
+  journal   = {Biological Psychiatry: Cognitive Neuroscience and Neuroimaging},
+  title     = {Machine learning for precision psychiatry: opportunities and challenges},
+  year      = {2018},
+  number    = {3},
+  pages     = {223--230},
+  volume    = {3},
+  publisher = {Elsevier},
+}
+
+@Article{lowell1994predicting,
+  author    = {Lowell, Walter E and Davis, George E},
+  journal   = {Journal of the American Medical Informatics Association},
+  title     = {Predicting length of stay for psychiatric diagnosis-related groups using neural networks},
+  year      = {1994},
+  number    = {6},
+  pages     = {459--466},
+  volume    = {1},
+  publisher = {BMJ Group BMA House, Tavistock Square, London, WC1H 9JR},
+}
+
+@Misc{neil2016phased,
+  author        = {Daniel Neil and Michael Pfeiffer and Shih-Chii Liu},
+  title         = {Phased LSTM: Accelerating Recurrent Network Training for Long or Event-based Sequences},
+  year          = {2016},
+  archiveprefix = {arXiv},
+  eprint        = {1610.09513},
+  primaryclass  = {cs.LG},
+}
+
+@Misc{Kessler1990NCS1,
+  author  = {Ronald C. Kessler},
+  title   = {National Comorbidity Survey: Baseline (NCS-1)},
+  year    = {1990-1992},
+  journal = {Ann Arbor, MI: Inter-university Consortium for Political and Social Research [distributor]},
+  url     = {https://doi.org/10.3886/ICPSR06693.v6},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
