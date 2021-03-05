@@ -1,0 +1,311 @@
+,VarName,Description,Root_DF,Start,End,DataFrame,recursion_flag
+0,D22A,Age worst episode began,Depression,171,171,ncsr,0
+1,D22C,Age of last bad sadness/depressed episode,Depression,174,174,ncsr,0
+2,D37A,Age 1st depressed episode,Depression,225,225,ncsr,0
+3,D37B,Estimate age 1st episode,Depression,226,226,ncsr,0
+4,D38C,Age last time with episode,Depression,240,240,ncsr,0
+5,D42,Age had 1st year of episodes every month,Depression,244,244,ncsr,0
+6,D47,Age at first year with episodes most days,Depression,248,248,ncsr,0
+7,D59A,Age first time had a year of episodes most days,Depression,257,257,ncsr,0
+8,D72A,Age first time talked to professional about sadness/discour,Depression,273,273,ncsr,0
+9,D87A,Age 1st hospitalized overnight for sadness,Depression,276,276,ncsr,0
+10,D37B1,Estimate age of 1st episode,Depression,277,277,ncsr,0
+11,M6A,Age at irritable period with most behavioral changes,Mania,292,292,ncsr,0
+12,M6C,Age most recent irritable period with most behav changes,Mania,295,295,ncsr,0
+13,M18A,Age of 1st excited/grouchy episode + behav changes,Mania,319,319,ncsr,0
+14,M18B1,Estimate age 1st excited/grouchy episode + behav changes,Mania,320,320,ncsr,0
+15,M18B,Estimate age 1st excited/grouchy episode + behav changes,Mania,321,321,ncsr,0
+16,M19D,Age last time excited/grouchy + behav episodes,Mania,331,331,ncsr,0
+17,M33A,Age 1st time talk to professional,Mania,355,355,ncsr,0
+18,M45A,Age 1st time received helpful/effective treatment for episodes,Mania,357,357,ncsr,0
+19,M48A,Age 1st time hospitalized overnight for episode,Mania,362,362,ncsr,0
+20,IR7A,Age worst episode occurred,Irritable_Depression,370,370,ncsr,0
+21,IR20A,Age in years 1st irritable episode + other probs,Irritable_Depression,395,395,ncsr,0
+22,IR20B1,Approximate age 1st irritable episode + other probs,Irritable_Depression,396,396,ncsr,0
+23,IR21C,Age last time had irritable episode,Irritable_Depression,414,414,ncsr,0
+24,IR56A,Age 1st talk to medical professional about irritability,Irritable_Depression,433,433,ncsr,0
+25,IR68A,Age 1st time got helpful/effective treatment for irritability,Irritable_Depression,435,435,ncsr,0
+26,IR71A,Age 1st time hospitalized overnight for irritability,Irritable_Depression,440,440,ncsr,0
+27,PD7A,Age at attack,Panic_Disorder,464,464,ncsr,0
+28,PD7B1,Estimate age at attack,Panic_Disorder,465,465,ncsr,0
+29,PD9A,Age 1st attack,Panic_Disorder,470,470,ncsr,0
+30,PD9B1,Estimate age 1st attack,Panic_Disorder,471,471,ncsr,0
+31,PD10D,Age at last attack,Panic_Disorder,478,478,ncsr,0
+32,PD15,Age 1st mth of worry/change activities/avoid sits due to attack,Panic_Disorder,485,485,ncsr,0
+33,PD16E,Age last time had month of worry about attack,Panic_Disorder,491,491,ncsr,0
+34,PD21B1,Age of 1st out of blue attack,Panic_Disorder,496,496,ncsr,0
+35,PD37A,Age at last sudden attack,Panic_Disorder,505,505,ncsr,0
+36,PD50A,Age 1st see professional for attacks,Panic_Disorder,519,519,ncsr,0
+37,PD62A,Age 1st got helpful treatment for attack,Panic_Disorder,521,521,ncsr,0
+38,PD65A,Age 1st time hospitalized overnight for attacks,Panic_Disorder,526,526,ncsr,0
+39,PD7B,Estimate age at attack-computed,Panic_Disorder,528,528,ncsr,0
+40,PD9B,Estimate age 1st attack-computed,Panic_Disorder,529,529,ncsr,0
+41,PD21,Age 1st out of blue attack-computed,Panic_Disorder,530,530,ncsr,0
+42,SP3A1,Age 1st time feared some type of animal,Specific_Phobia,533,533,ncsr,0
+43,SP3C1,Age 1st avoided situations to see animals,Specific_Phobia,537,537,ncsr,0
+44,SP5A1,Age 1st time fear of storm or still water,Specific_Phobia,541,541,ncsr,0
+45,SP5C1,Age 1st avoid situation like storm or still water,Specific_Phobia,545,545,ncsr,0
+46,SP7A1,Age 1st time fear doc/inject/blood/injury experience,Specific_Phobia,549,549,ncsr,0
+47,SP7C1,Age 1st avoid doc/inject/blood/injury,Specific_Phobia,553,553,ncsr,0
+48,SP9A1,Age 1st time feared closed spaces,Specific_Phobia,558,558,ncsr,0
+49,SP9C1,Age 1st avoided closed spaces,Specific_Phobia,562,562,ncsr,0
+50,SP11A1,Age 1st feared high places,Specific_Phobia,570,570,ncsr,0
+51,SP11C1,Age 1st avoided high places,Specific_Phobia,574,574,ncsr,0
+52,SP13A1,Age 1st feared flying,Specific_Phobia,582,582,ncsr,0
+53,SP13C1,Age 1st avoided flying,Specific_Phobia,586,586,ncsr,0
+54,SP20,Age last time strongly feared or avoided things,Specific_Phobia,613,613,ncsr,0
+55,SP27A,Age 1st talk to medical doc/professional about fear,Specific_Phobia,622,622,ncsr,0
+56,SP38A,Age 1st received helpful/effective treatment for fear,Specific_Phobia,624,624,ncsr,0
+57,SP41A,Age 1st hospitalized overnight for fear,Specific_Phobia,630,630,ncsr,0
+58,SO3A,Age 1st fear of social situations,Social_Phobia,659,659,ncsr,0
+59,ASO3B1,Estimate age of 1st social fear,Social_Phobia,660,660,ncsr,0
+60,ASO6B1,Age 1st avoided social or perf sit due to fear-computed,Social_Phobia,663,663,ncsr,0
+61,SO18A,Age last strongly feared or avoided social situation,Social_Phobia,702,702,ncsr,0
+62,SO25A,Age 1st see professional for social fear,Social_Phobia,710,710,ncsr,0
+63,SO36A,Age 1st received helpful treatment for social fear,Social_Phobia,712,712,ncsr,0
+64,SO39A,Age 1st hospitalized overnight for social fear,Social_Phobia,717,717,ncsr,0
+65,AG26B1,Estimate age 1st worry/anxious/nervous + other probs,Agoraphobia,721,721,ncsr,0
+66,AG3A,Age 1st fear when being alone or in public situation,Agoraphobia,737,737,ncsr,0
+67,AAG3B1,Estimate age 1st fears,Agoraphobia,738,738,ncsr,0
+68,AAG6A1,Age 1st avoid public situations,Agoraphobia,750,750,ncsr,0
+69,AG17B,Age last time avoided situations due to fear,Agoraphobia,779,779,ncsr,0
+70,AG24A,Age 1st time talk professional for fear,Agoraphobia,787,787,ncsr,0
+71,AG35A,Age 1st got helpful/effective treatment for fear,Agoraphobia,789,789,ncsr,0
+72,AG38A,Age 1st time hospitalized overnight for fear,Agoraphobia,794,794,ncsr,0
+73,G26A,Age 1st worry/anxious/nervous episode + other probs,Generalized_Anxiety_Disorder,860,860,ncsr,0
+74,G27C,Age last time had 1 of these worried episodes,Generalized_Anxiety_Disorder,872,872,ncsr,0
+75,G44A,Age 1st talked to med professional about worry/anx/nerv,Generalized_Anxiety_Disorder,895,895,ncsr,0
+76,G56A,Age 1st received helpful/effective trmt for worry/anx/nerv,Generalized_Anxiety_Disorder,897,897,ncsr,0
+77,G59A,Age 1st hospitalized overnight for worry/anxious/nervous,Generalized_Anxiety_Disorder,902,902,ncsr,0
+78,IED18B,Approx age 1st attack,Intermittent_Explosive_Disorder,927,927,ncsr,0
+79,IED22A,Age last attack,Intermittent_Explosive_Disorder,934,934,ncsr,0
+80,IED29A,Age 1st talk to profssional about anger attacks,Intermittent_Explosive_Disorder,951,951,ncsr,0
+81,IED30A,Age 1st got helpful/effective treatment for anger,Intermittent_Explosive_Disorder,953,953,ncsr,0
+82,IED33A,Age 1st hospitalized overnight for anger,Intermittent_Explosive_Disorder,958,958,ncsr,0
+83,SD2A,Age 1st thought seriously about commiting suicide,Suicidality,961,961,ncsr,0
+84,SD3A,Age last seriously thought about suicide,Suicidality,963,963,ncsr,0
+85,SD4A,Age 1st made suicide plan,Suicidality,965,965,ncsr,0
+86,SD5A,Age last made suicide plan,Suicidality,967,967,ncsr,0
+87,SD8,Age 1st time attempted suicide,Suicidality,970,970,ncsr,0
+88,SD10A,Age last time attempted suicide,Suicidality,973,973,ncsr,0
+89,SD15A,Age 1st thought of committing suicide,Suicidality,976,976,ncsr,0
+90,SD16A,Age last thoughts about committing suicide,Suicidality,978,978,ncsr,0
+91,SD17A,Age 1st made suicide plan,Suicidality,980,980,ncsr,0
+92,SD18A,Age last made suicide plan,Suicidality,982,982,ncsr,0
+93,SD21,Age 1st time attempted suicide,Suicidality,985,985,ncsr,0
+94,SD23A,Age last time attempted suicide,Suicidality,988,988,ncsr,0
+95,SR5B,Age hospitalized overnight for mental health/substance use,Services,993,993,ncsr,0
+96,SR7,Age 1st hospitalized overnight for mental health/sub use,Services,998,998,ncsr,0
+97,SR8A,Age most recent hospitalization for mental health,Services,1000,1000,ncsr,0
+98,SR10A,Age 1st self-help group for emotions,Services,1007,1007,ncsr,0
+99,SR11A,Age 1st used hotline for emotions/nerves,Services,1011,1011,ncsr,0
+100,SR12A,Age 1st session of psych counsel/therapy,Services,1015,1015,ncsr,0
+101,SR13A,Age 1st prescription for emotions,Services,1017,1017,ncsr,0
+102,SR19,Age 1st talk to psychiatrist about emotion/mental health,Services,1029,1029,ncsr,0
+103,SR21,Age last saw psychiatrist,Services,1031,1031,ncsr,0
+104,SR27,Age 1st saw medical doctor for mental health/sub use,Services,1038,1038,ncsr,0
+105,SR29,Age last saw medical doctor for mental health/sub use,Services,1040,1040,ncsr,0
+106,SR31,Age 1st clinic/specialist referral for ment health/sub use,Services,1042,1042,ncsr,0
+107,SR40,Age 1st saw psychologist about mental health/sub use,Services,1050,1050,ncsr,0
+108,SR42,Age last saw psychologist for emotions/sub use,Services,1052,1052,ncsr,0
+109,SR48,Age 1st saw social worker for mental health/sub use,Services,1059,1059,ncsr,0
+110,SR50,Age last saw social worker for mental health/sub use,Services,1061,1061,ncsr,0
+111,SR57,Age 1st saw counselor for mental health/sub use,Services,1073,1073,ncsr,0
+112,SR59,Age last saw counselor for mental health/sub use,Services,1075,1075,ncsr,0
+113,SR66,Age 1st saw other ment health prof for ment health/sub use,Services,1082,1082,ncsr,0
+114,SR68,Age last saw mental health professional about emotions,Services,1084,1084,ncsr,0
+115,SR74,Age 1st saw nurse/ot/non MD prof for ment health/sub use,Services,1091,1091,ncsr,0
+116,SR76,Age last saw nurse/ot/non MD prof for emotions,Services,1093,1093,ncsr,0
+117,SR78,Age 1st time nurse/ot/non MD prof recommended clinic,Services,1095,1095,ncsr,0
+118,SR87,Age 1st saw spiritual advisor for ment health/sub use,Services,1103,1103,ncsr,0
+119,SR89,Age last saw spiritual advisor for ment health/sub use,Services,1105,1105,ncsr,0
+120,SR91,Age spiritual advisor 1st refer to ment health spec/clinic,Services,1107,1107,ncsr,0
+121,SR100,Age 1st saw healer for mental health/substance use,Services,1115,1115,ncsr,0
+122,SR102,Age last saw healer for mental health/substance use,Services,1117,1117,ncsr,0
+123,SU1,Age 1st drank alcohol,Substance_Use,1285,1285,ncsr,0
+124,SU2,Age 1st drank 12 drinks per year-compute,Substance_Use,1286,1286,ncsr,0
+125,SU15A,Age 1st drinking problem occurred,Substance_Use,1300,1300,ncsr,0
+126,SU15B,Estimate age 1st drinking problems-compute,Substance_Use,1301,1301,ncsr,0
+127,SU17,Age last problem because of drinking,Substance_Use,1305,1305,ncsr,0
+128,SU30,Age 1st had 3 alcohol problems same in a year-comput,Substance_Use,1321,1321,ncsr,0
+129,SU45A,Age 1st used marijuana/hash,Substance_Use,1337,1337,ncsr,0
+130,SU45B,Age 1st used cocaine,Substance_Use,1340,1340,ncsr,0
+131,SU45C,Age 1st abused prescription,Substance_Use,1343,1343,ncsr,0
+132,SU45D,Age 1st used other drugs,Substance_Use,1346,1346,ncsr,0
+133,SU68B1,Estimate age 1st drug problem occurred,Substance_Use,1357,1357,ncsr,0
+134,SU83A,Age 1st had 3 drug problems same year,Substance_Use,1360,1360,ncsr,0
+135,SU68A,Age 1st drug problems occurred,Substance_Use,1369,1369,ncsr,0
+136,SU70,Age last problem because of drug use,Substance_Use,1371,1371,ncsr,0
+137,SU83,Age 1st had 3 drug problems same year-compute,Substance_Use,1386,1386,ncsr,0
+138,SU87A,Age 1st opportunity to use alcohol,Substance_Use,1392,1392,ncsr,0
+139,SU87B,Age 1st opportunity to use drugs,Substance_Use,1395,1395,ncsr,0
+140,SU95A,Age 1st see doctor about drugs,Substance_Use,1401,1401,ncsr,0
+141,SU102A,Age 1st got helpful/effective treatment for drug/alcohol prob,Substance_Use,1403,1403,ncsr,0
+142,SU119_1,Age 1st hospitalized overnight for drug problems,Substance_Use,1408,1408,ncsr,0
+143,SU119_3,Age 1st went to self-help group for drug/alc problems,Substance_Use,1410,1410,ncsr,0
+144,SU2A,Age 1st drank 12 drinks per year,Substance_Use,1413,1413,ncsr,0
+145,SU15B1,Estimate age 1st drinking problems,Substance_Use,1414,1414,ncsr,0
+146,SU30A,Age 1st had 3 alcohol problems in same year,Substance_Use,1415,1415,ncsr,0
+147,SU68B,Estimate age 1st drug problem occurred - computed,Substance_Use,1416,1416,ncsr,0
+148,CC3A,Age 1st had arthritis/rhumatism,Chronic_Conditions,1432,1432,ncsr,0
+149,CC3B,Age 1st had back/neck problems,Chronic_Conditions,1433,1433,ncsr,0
+150,CC3C,Age 1st had frequent /severe headache,Chronic_Conditions,1435,1435,ncsr,0
+151,CC3D,Age 1st had any other chronic pain,Chronic_Conditions,1437,1437,ncsr,0
+152,CC3E,Age 1st had seasonal allergies,Chronic_Conditions,1439,1439,ncsr,0
+153,CC3F,Age 1st had stroke,Chronic_Conditions,1441,1441,ncsr,0
+154,CC3G,Age 1st had heart attack,Chronic_Conditions,1442,1442,ncsr,0
+155,CC3H,Age 1st diagnosed with heart disease,Chronic_Conditions,1443,1443,ncsr,0
+156,CC3I,Age 1st diagnosed with high blood pressure,Chronic_Conditions,1444,1444,ncsr,0
+157,CC3J,Age 1st diagnosed with asthma,Chronic_Conditions,1446,1446,ncsr,0
+158,CC3L,Age 1st diagnosed with chronic lung disease,Chronic_Conditions,1447,1447,ncsr,0
+159,CC3N,Age 1st diagnosed with diabetes/high blood sugar,Chronic_Conditions,1448,1448,ncsr,0
+160,CC3O,Age 1st diagnosed with ulcer,Chronic_Conditions,1450,1450,ncsr,0
+161,CC3S,Age 1st diagnosed with epilepsy/seizures,Chronic_Conditions,1452,1452,ncsr,0
+162,CC3T,Age 1st diagnosed with cancer,Chronic_Conditions,1453,1453,ncsr,0
+163,CC29_1,Age 1st medically unexplained chronic pain,Chronic_Conditions,1517,1517,ncsr,0
+164,CC39_1,Age when received diagnosis for colitis/Crohn's Disease,Chronic_Conditions,1540,1540,ncsr,0
+165,CC44,Age 1st time period of this sort,Chronic_Conditions,1545,1545,ncsr,0
+166,CC72,Age when threat with gun happened,Chronic_Conditions,1594,1594,ncsr,0
+167,CC73,Age 1st time threatened someone with gun,Chronic_Conditions,1595,1595,ncsr,0
+168,CC79,Age threatened someone with other weapons,Chronic_Conditions,1599,1599,ncsr,0
+169,CC80,Age 1st time threatened someone with other weapon,Chronic_Conditions,1600,1600,ncsr,0
+170,N16A,Age 1st time sev mths+ when easily tired + other probs,Neurasthenia,1638,1638,ncsr,0
+171,N16B,Approx age of very 1st tiredness + other problems sev mths +,Neurasthenia,1639,1639,ncsr,0
+172,N17C,Age last time frequent tiredness + other problems,Neurasthenia,1643,1643,ncsr,0
+173,N31,Age 1st talked to professional about tiredness,Neurasthenia,1655,1655,ncsr,0
+174,N32A,Age 1st talked to professional about tiredness,Neurasthenia,1657,1657,ncsr,0
+175,N44A,Age 1st received helpful/effective treatment for tiredness,Neurasthenia,1659,1659,ncsr,0
+176,N47A,Age 1st hospitalized overnight for tiredness,Neurasthenia,1664,1664,ncsr,0
+177,TB21A,Age of very 1st smoking related problems,Tobacco,1831,1831,ncsr,0
+178,PR2,Age of 1st period,Premenstrual_Syndrome,1849,1849,ncsr,0
+179,PR4A,Age 1st taken birth control pills,Premenstrual_Syndrome,1853,1853,ncsr,0
+180,PR4C,Age stopped taking birth control pills,Premenstrual_Syndrome,1855,1855,ncsr,0
+181,PR5A,Age ovaries/uterus removed,Premenstrual_Syndrome,1857,1857,ncsr,0
+182,PR7,Age last period,Premenstrual_Syndrome,1859,1859,ncsr,0
+183,PR9,Age 1st taken hormone replacements,Premenstrual_Syndrome,1861,1861,ncsr,0
+184,PR11,Age stopped taking hormone replacements,Premenstrual_Syndrome,1863,1863,ncsr,0
+185,PR20A,Age 1st had PMS,Premenstrual_Syndrome,1873,1873,ncsr,0
+186,PR20B,Estimate age 1st PMS,Premenstrual_Syndrome,1874,1874,ncsr,0
+187,PR20B1,Estimate age 1st PMS,Premenstrual_Syndrome,1875,1875,ncsr,0
+188,PR21B,Age last time had PMS,Premenstrual_Syndrome,1878,1878,ncsr,0
+189,PR27A,Age 1st talked to profssional about PMS,Premenstrual_Syndrome,1881,1881,ncsr,0
+190,O16C,Age last had thoughts/images/impul most days for 2+ wks,ObsessiveCompulsive_Disorder,1910,1910,ncsr,0
+191,O28C,Age last carried out repet behavior most days for 2+ weeks,ObsessiveCompulsive_Disorder,1927,1927,ncsr,0
+192,O45A,Age of very 1st OCD behavior of 2+ wks,ObsessiveCompulsive_Disorder,1940,1940,ncsr,0
+193,O45B,Estimate age of 1st time OCD behavior of 2+ wks,ObsessiveCompulsive_Disorder,1941,1941,ncsr,0
+194,O45B1,Estimate age of 1st time OCD behavior of 2+ wks,ObsessiveCompulsive_Disorder,1942,1942,ncsr,0
+195,O54,Age 1st talked professional about OCD behavior,ObsessiveCompulsive_Disorder,1954,1954,ncsr,0
+196,O67A,Age 1st received helpful/effective treatment for OCD behavior,ObsessiveCompulsive_Disorder,1956,1956,ncsr,0
+197,O70A,Age 1st hospitalized overnight for OCD behavior,ObsessiveCompulsive_Disorder,1961,1961,ncsr,0
+198,PS3,Age 1st psychotic experience,Psychosis,1982,1982,ncsr,0
+199,GM2,Age 1st placed bet or gambled with money,Gambling,2005,2005,ncsr,0
+200,GM5,Age 1st started gambling weekly for 6 months in a row,Gambling,2007,2007,ncsr,0
+201,GM33,Age last bet or gambled,Gambling,2015,2015,ncsr,0
+202,GM16B,Estimate age 1st problem because of gambling,Gambling,2047,2047,ncsr,0
+203,GM16A1,Age 1st problem because of gambling before teens,Gambling,2048,2048,ncsr,0
+204,GM16A2,Age 1st problem because of gambling before 20s,Gambling,2049,2049,ncsr,0
+205,GM18,Age of last problem because of gambling,Gambling,2051,2051,ncsr,0
+206,GM20B,Estimate age 1st problems because of gambling,Gambling,2055,2055,ncsr,0
+207,GM20B1,Age 1st problems because of gambling before teens,Gambling,2056,2056,ncsr,0
+208,GM20B2,Age 1st problems because of gambling before 20s,Gambling,2057,2057,ncsr,0
+209,GM22,Age last time any problems because of gambling,Gambling,2059,2059,ncsr,0
+210,GM22A1,Age last time problems because of gambling before teens,Gambling,2060,2060,ncsr,0
+211,GM22A2,Age last time problems because of gambling before 20s,Gambling,2061,2061,ncsr,0
+212,GM25,Age 1st had 5 or more of gambling problems in same year,Gambling,2064,2064,ncsr,0
+213,GM25A1,Age 1st had 5 or more of gamb probs same year before teens,Gambling,2065,2065,ncsr,0
+214,GM25A2,Age 1st had 5 or more of gamb probs same year before 20s,Gambling,2066,2066,ncsr,0
+215,GM40A,Age 1st talked toprofessional about gambling problems,Gambling,2068,2068,ncsr,0
+216,GM41A,Age 1st went to self-help group for gambling problems,Gambling,2071,2071,ncsr,0
+217,GM43A,Age 1st helpful treatment/counsel for gambling problem,Gambling,2074,2074,ncsr,0
+218,EM1,Age 1st yr worked 6 mths + at paid job,Employment,2107,2107,ncsr,0
+219,MR1_2,Age at first date,Marriage,2205,2205,ncsr,0
+220,MR10_0,Person older/younger/same age as you,Marriage,2213,2213,ncsr,0
+221,MR24,Age separated 1st spouse for last time,Marriage,2223,2223,ncsr,0
+222,MR19,Age you married 1st time: Top/Bot Code,Marriage,2276,2276,ncsr,0
+223,CN3,Age of 1st sexual intercourse,Children,2289,2289,ncsr,0
+224,CN5B,Age 1st miscarriage/stillbirth,Children,2292,2292,ncsr,0
+225,CN6B,Age 1st abortion,Children,2295,2295,ncsr,0
+226,CN7B,Age when your child died,Children,2298,2298,ncsr,0
+227,CN7C,Age of your child at time of their death,Children,2299,2299,ncsr,0
+228,CN7C_101,Your age when child died-1st mention,Children,2311,2311,ncsr,0
+229,CN7C_102,Your age when child died-2nd mention,Children,2312,2312,ncsr,0
+230,CN7C_103,Your age when child died-3rd mention,Children,2313,2313,ncsr,0
+231,CN7C_104,Your age when child died-4th mention,Children,2314,2314,ncsr,0
+232,CN7C_105,Your age when child died-5th mention,Children,2315,2315,ncsr,0
+233,CN7C_106,Your age when child died-6 mention,Children,2316,2316,ncsr,0
+234,CN7C_107,Your age when child died-7th mention,Children,2317,2317,ncsr,0
+235,CN7C_108,Your age when child died-8th mention,Children,2318,2318,ncsr,0
+236,CN7C_109,Your age when child died-9th mention,Children,2319,2319,ncsr,0
+237,CN7C_110,Your age when child died-10th mention,Children,2320,2320,ncsr,0
+238,CN7_2A,Age 1st miscar/stillbirth/abortion with someone you got preg,Children,2332,2332,ncsr,0
+239,DA36_3C,Age last time received public assistance,Adult_Demographics,2370,2370,ncsr,0
+240,DA40,Age of mother when you were born,Adult_Demographics,2377,2377,ncsr,0
+241,DA49,Age of father when you were born,Adult_Demographics,2382,2382,ncsr,0
+242,CH2A,Your age when your mother died,Childhood,2434,2434,ncsr,0
+243,CH2B,Your age when your father died,Childhood,2435,2435,ncsr,0
+244,CH2C,Your age when your parents divorced,Childhood,2436,2436,ncsr,0
+245,CH6B,Age 1st time went away,Childhood,2443,2443,ncsr,0
+246,CH6CA,"Unit of time away from home before age 16, CH6C",Childhood,2445,2445,ncsr,0
+247,CH30_1A,Freq made to do chores too diffic/dang for age in childhood,Childhood,2460,2460,ncsr,0
+248,CH30_1B,Freq left unsupervised at too early age in childhood,Childhood,2461,2461,ncsr,0
+249,AD3B,Estimate age of 1st attention problems-compute,Attention_Deficit_Hyperactivity_Disorder,2542,2542,ncsr,0
+250,AD3B1,Estimate age of 1st attention problems,Attention_Deficit_Hyperactivity_Disorder,2543,2543,ncsr,0
+251,AD4A,Age last time had attention problem for 6+ months,Attention_Deficit_Hyperactivity_Disorder,2548,2548,ncsr,0
+252,AD14A,Age 1st talked to professional for attention difficulties,Attention_Deficit_Hyperactivity_Disorder,2560,2560,ncsr,0
+253,AD25A,Age 1st got helpful/effective treatment for attn difficulties,Attention_Deficit_Hyperactivity_Disorder,2562,2562,ncsr,0
+254,AD28A,Age 1st hospitalized overnight for attention difficulties,Attention_Deficit_Hyperactivity_Disorder,2567,2567,ncsr,0
+255,AD32B,Estimate age of 1st restless/impatient difficulty-computed,Attention_Deficit_Hyperactivity_Disorder,2581,2581,ncsr,0
+256,AD33A,Age last time restless/impatient difficulty 6+ mths,Attention_Deficit_Hyperactivity_Disorder,2583,2583,ncsr,0
+257,AD43_1A,Age 1st saw prof for impatience difficulties,Attention_Deficit_Hyperactivity_Disorder,2595,2595,ncsr,0
+258,AD43_1C,Age 1st got helpful/effective trmt for impatience difficulties,Attention_Deficit_Hyperactivity_Disorder,2597,2597,ncsr,0
+259,AD43_1H,Age 1st hospitalized overnight for impatience difficulties,Attention_Deficit_Hyperactivity_Disorder,2602,2602,ncsr,0
+260,AD32B1,Estimate age 1st irestless/impatient difficulty,Attention_Deficit_Hyperactivity_Disorder,2603,2603,ncsr,0
+261,OD3B,Estimate age of 1st behavior problems for 6+ mths-compute,OppositionalDefiant_Disorder,2619,2619,ncsr,0
+262,OD3B1,Estimate age 1st  behavior problems for 6+ mths,OppositionalDefiant_Disorder,2620,2620,ncsr,0
+263,OD4A,Age last had behavior trouble for 6+ months,OppositionalDefiant_Disorder,2624,2624,ncsr,0
+264,OD12A,Age 1st talked to professional about behavior,OppositionalDefiant_Disorder,2633,2633,ncsr,0
+265,OD23A,Age 1st got helpful/effective treatment for behavior,OppositionalDefiant_Disorder,2635,2635,ncsr,0
+266,OD26A,Age 1st hospitalized overnight for behavior,OppositionalDefiant_Disorder,2640,2640,ncsr,0
+267,CD7B,Estimate age 1st time you had conduct disorder,Conduct_Disorder,2655,2655,ncsr,0
+268,ACD18C1,Estimate age 1st aggress behavior,Conduct_Disorder,2658,2658,ncsr,0
+269,CD9A,Age last time you had conduct disorder,Conduct_Disorder,2662,2662,ncsr,0
+270,CD18B,Age of the very 1st aggressive behavior,Conduct_Disorder,2673,2673,ncsr,0
+271,CD20A,Age last time you engaged in aggressive behavior,Conduct_Disorder,2675,2675,ncsr,0
+272,CD37A,Age 1st police trouble for aggressive behavior,Conduct_Disorder,2681,2681,ncsr,0
+273,SA8A,Age of 1st specific sep anx of 1+ mths,Separation_Anxiety,2699,2699,ncsr,0
+274,SA8B,Estimate age of 1st specific sep anx of 1+ mths-com,Separation_Anxiety,2700,2700,ncsr,0
+275,SA8B1,Estimate age of 1st sep anx of 1+ mths,Separation_Anxiety,2701,2701,ncsr,0
+276,SA19A,Age of very 1st fam/part/friend separation anxiety,Separation_Anxiety,2725,2725,ncsr,0
+277,SA19B,Estimate age of 1st fam/part/friend separation anxiety-comp,Separation_Anxiety,2726,2726,ncsr,0
+278,SA19B1,Estimate age 1st fam/part/friend separation anxiety,Separation_Anxiety,2727,2727,ncsr,0
+279,SA20C,Age last had separation anxiety for 1+ mths,Separation_Anxiety,2733,2733,ncsr,0
+280,SA43A,Age 1st talked to prof for separation anxiety,Separation_Anxiety,2742,2742,ncsr,0
+281,SA44A,Age 1st received helpful/effective treatment for sep anx,Separation_Anxiety,2744,2744,ncsr,0
+282,SA47A,Age 1st hospitalized overnight for separation anxiety,Separation_Anxiety,2749,2749,ncsr,0
+283,DM1_15,Age 1st yr worked 6 mths + at paid job,Demographics,3078,3078,ncsr,0
+284,DM20,Age you married 1st time: Top/Bot Code,Demographics,3099,3099,ncsr,0
+285,DM_EM1,Age 1st yr worked 6 mths + at paid job,Demographics,3118,3118,ncsr,0
+286,DM_MR19,Age you married 1st time: Top/Bot Code,Demographics,3131,3131,ncsr,0
+287,PT57A1,Age at most upsetting traumatic event not reported,PostTraumatic_Stress_Disorder,3149,3149,ncsr,0
+288,PT59B_5,Age at time of random event,PostTraumatic_Stress_Disorder,3156,3156,ncsr,0
+289,PT64A,Age at worst event,PostTraumatic_Stress_Disorder,3162,3162,ncsr,0
+290,PT119,Age at RANDOM EVENT,PostTraumatic_Stress_Disorder,3191,3191,ncsr,0
+291,PT119A,Correct age at random event,PostTraumatic_Stress_Disorder,3192,3192,ncsr,0
+292,PT120,Age at random event (2),PostTraumatic_Stress_Disorder,3193,3193,ncsr,0
+293,PT246A,Age 1st talk professional about reaction,PostTraumatic_Stress_Disorder,3240,3240,ncsr,0
+294,PT256A,Age 1st received helpful/effective treatment for reactions,PostTraumatic_Stress_Disorder,3242,3242,ncsr,0
+295,PT55C,"Age when event, PT55 happened",PostTraumatic_Stress_Disorder,3296,3296,ncsr,0
+296,PT120A,Correct age at random event,PostTraumatic_Stress_Disorder,3299,3299,ncsr,0
+297,PT59B,Age RANDOM EVENT,PostTraumatic_Stress_Disorder,3300,3300,ncsr,0
+298,EA12A,Age at lowest weight,Eating_Disorder,3311,3311,ncsr,0
+299,EA12B1,Estimate age of 1st time lowest weight,Eating_Disorder,3312,3312,ncsr,0
+300,EA15A,Age last at lowest weight,Eating_Disorder,3315,3315,ncsr,0
+301,EA19A,Age of 1st binged 2 times/week for 3+ mths,Eating_Disorder,3327,3327,ncsr,0
+302,EA19B,Estimate age 1st binged 2/week for 3+ mths-computed,Eating_Disorder,3328,3328,ncsr,0
+303,EA19B1,Estimate age of 1st binged 2/week for 3+ mths,Eating_Disorder,3329,3329,ncsr,0
+304,EA22A,Age last binged 2 times a week,Eating_Disorder,3333,3333,ncsr,0
+305,EA26A,Age 1st used weight control method for 3+ mths,Eating_Disorder,3342,3342,ncsr,0
+306,EA26B1,Estimate age used weight control method for 3+ mths,Eating_Disorder,3343,3343,ncsr,0
+307,EA29A,Age last used weight control strategy,Eating_Disorder,3346,3346,ncsr,0
+308,EA35A,Age 1st saw doctor for eating problems,Eating_Disorder,3353,3353,ncsr,0
+309,EA37A,Age 1st received helpful treatment for eating/weight probs,Eating_Disorder,3355,3355,ncsr,0

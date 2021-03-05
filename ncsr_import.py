@@ -78,7 +78,21 @@ class ncsr_data:
         if search_tree.empty: 
           search_tree = self.root
         #initialize search_tree
-
+        if value<0: 
+          try: 
+            value = self.ncsr.columns.get_loc(var)
+            for x in range(0, len(search_tree)):
+                # search for next node to enter
+              if value <= search_tree.loc[x, 'End'] and value >= search_tree.loc[x, 'Start']:
+                if search_tree.iloc[x, 0] != var:
+                  # recursion_flag makes sure that next node exists for recursion
+                    return self.search_for_description(var,  eval("self.tree." + search_tree.iloc[x,0]),  0, value)
+                elif search_tree.iloc[x, 0] == var: 
+                    return search_tree.iloc[x,:]
+                else: 
+                    return -1
+          except:
+            return -1
       # All values are initialized
         for x in range(0, len(search_tree)):
           # search for next node to enter

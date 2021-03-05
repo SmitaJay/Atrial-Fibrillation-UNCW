@@ -9,7 +9,7 @@ import data_loader
 import models
 
 
-with open('data/test_ev50_big.pkl', 'rb') as handle:
+with open('dpp_test_data/test_ev50_big.pkl', 'rb') as handle:
     train_data = pickle.load(handle)
 
 
@@ -35,7 +35,7 @@ gap_mean = np.mean(gap)
 gap_std = np.std(gap)
 
 
-with open('data/model_test_ev50_big.pkl', 'rb') as handle:
+with open('dpp_test_data/model_test_ev50_big.pkl', 'rb') as handle:
     true_model = pickle.load(handle)
 
 
