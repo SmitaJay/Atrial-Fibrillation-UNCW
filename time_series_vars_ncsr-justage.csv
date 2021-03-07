@@ -239,73 +239,71 @@
 237,CN7C_110,Your age when child died-10th mention,Children,2320,2320,ncsr,0
 238,CN7_2A,Age 1st miscar/stillbirth/abortion with someone you got preg,Children,2332,2332,ncsr,0
 239,DA36_3C,Age last time received public assistance,Adult_Demographics,2370,2370,ncsr,0
-240,DA40,Age of mother when you were born,Adult_Demographics,2377,2377,ncsr,0
-241,DA49,Age of father when you were born,Adult_Demographics,2382,2382,ncsr,0
-242,CH2A,Your age when your mother died,Childhood,2434,2434,ncsr,0
-243,CH2B,Your age when your father died,Childhood,2435,2435,ncsr,0
-244,CH2C,Your age when your parents divorced,Childhood,2436,2436,ncsr,0
-245,CH6B,Age 1st time went away,Childhood,2443,2443,ncsr,0
-246,CH6CA,"Unit of time away from home before age 16, CH6C",Childhood,2445,2445,ncsr,0
-247,CH30_1A,Freq made to do chores too diffic/dang for age in childhood,Childhood,2460,2460,ncsr,0
-248,CH30_1B,Freq left unsupervised at too early age in childhood,Childhood,2461,2461,ncsr,0
-249,AD3B,Estimate age of 1st attention problems-compute,Attention_Deficit_Hyperactivity_Disorder,2542,2542,ncsr,0
-250,AD3B1,Estimate age of 1st attention problems,Attention_Deficit_Hyperactivity_Disorder,2543,2543,ncsr,0
-251,AD4A,Age last time had attention problem for 6+ months,Attention_Deficit_Hyperactivity_Disorder,2548,2548,ncsr,0
-252,AD14A,Age 1st talked to professional for attention difficulties,Attention_Deficit_Hyperactivity_Disorder,2560,2560,ncsr,0
-253,AD25A,Age 1st got helpful/effective treatment for attn difficulties,Attention_Deficit_Hyperactivity_Disorder,2562,2562,ncsr,0
-254,AD28A,Age 1st hospitalized overnight for attention difficulties,Attention_Deficit_Hyperactivity_Disorder,2567,2567,ncsr,0
-255,AD32B,Estimate age of 1st restless/impatient difficulty-computed,Attention_Deficit_Hyperactivity_Disorder,2581,2581,ncsr,0
-256,AD33A,Age last time restless/impatient difficulty 6+ mths,Attention_Deficit_Hyperactivity_Disorder,2583,2583,ncsr,0
-257,AD43_1A,Age 1st saw prof for impatience difficulties,Attention_Deficit_Hyperactivity_Disorder,2595,2595,ncsr,0
-258,AD43_1C,Age 1st got helpful/effective trmt for impatience difficulties,Attention_Deficit_Hyperactivity_Disorder,2597,2597,ncsr,0
-259,AD43_1H,Age 1st hospitalized overnight for impatience difficulties,Attention_Deficit_Hyperactivity_Disorder,2602,2602,ncsr,0
-260,AD32B1,Estimate age 1st irestless/impatient difficulty,Attention_Deficit_Hyperactivity_Disorder,2603,2603,ncsr,0
-261,OD3B,Estimate age of 1st behavior problems for 6+ mths-compute,OppositionalDefiant_Disorder,2619,2619,ncsr,0
-262,OD3B1,Estimate age 1st  behavior problems for 6+ mths,OppositionalDefiant_Disorder,2620,2620,ncsr,0
-263,OD4A,Age last had behavior trouble for 6+ months,OppositionalDefiant_Disorder,2624,2624,ncsr,0
-264,OD12A,Age 1st talked to professional about behavior,OppositionalDefiant_Disorder,2633,2633,ncsr,0
-265,OD23A,Age 1st got helpful/effective treatment for behavior,OppositionalDefiant_Disorder,2635,2635,ncsr,0
-266,OD26A,Age 1st hospitalized overnight for behavior,OppositionalDefiant_Disorder,2640,2640,ncsr,0
-267,CD7B,Estimate age 1st time you had conduct disorder,Conduct_Disorder,2655,2655,ncsr,0
-268,ACD18C1,Estimate age 1st aggress behavior,Conduct_Disorder,2658,2658,ncsr,0
-269,CD9A,Age last time you had conduct disorder,Conduct_Disorder,2662,2662,ncsr,0
-270,CD18B,Age of the very 1st aggressive behavior,Conduct_Disorder,2673,2673,ncsr,0
-271,CD20A,Age last time you engaged in aggressive behavior,Conduct_Disorder,2675,2675,ncsr,0
-272,CD37A,Age 1st police trouble for aggressive behavior,Conduct_Disorder,2681,2681,ncsr,0
-273,SA8A,Age of 1st specific sep anx of 1+ mths,Separation_Anxiety,2699,2699,ncsr,0
-274,SA8B,Estimate age of 1st specific sep anx of 1+ mths-com,Separation_Anxiety,2700,2700,ncsr,0
-275,SA8B1,Estimate age of 1st sep anx of 1+ mths,Separation_Anxiety,2701,2701,ncsr,0
-276,SA19A,Age of very 1st fam/part/friend separation anxiety,Separation_Anxiety,2725,2725,ncsr,0
-277,SA19B,Estimate age of 1st fam/part/friend separation anxiety-comp,Separation_Anxiety,2726,2726,ncsr,0
-278,SA19B1,Estimate age 1st fam/part/friend separation anxiety,Separation_Anxiety,2727,2727,ncsr,0
-279,SA20C,Age last had separation anxiety for 1+ mths,Separation_Anxiety,2733,2733,ncsr,0
-280,SA43A,Age 1st talked to prof for separation anxiety,Separation_Anxiety,2742,2742,ncsr,0
-281,SA44A,Age 1st received helpful/effective treatment for sep anx,Separation_Anxiety,2744,2744,ncsr,0
-282,SA47A,Age 1st hospitalized overnight for separation anxiety,Separation_Anxiety,2749,2749,ncsr,0
-283,DM1_15,Age 1st yr worked 6 mths + at paid job,Demographics,3078,3078,ncsr,0
-284,DM20,Age you married 1st time: Top/Bot Code,Demographics,3099,3099,ncsr,0
-285,DM_EM1,Age 1st yr worked 6 mths + at paid job,Demographics,3118,3118,ncsr,0
-286,DM_MR19,Age you married 1st time: Top/Bot Code,Demographics,3131,3131,ncsr,0
-287,PT57A1,Age at most upsetting traumatic event not reported,PostTraumatic_Stress_Disorder,3149,3149,ncsr,0
-288,PT59B_5,Age at time of random event,PostTraumatic_Stress_Disorder,3156,3156,ncsr,0
-289,PT64A,Age at worst event,PostTraumatic_Stress_Disorder,3162,3162,ncsr,0
-290,PT119,Age at RANDOM EVENT,PostTraumatic_Stress_Disorder,3191,3191,ncsr,0
-291,PT119A,Correct age at random event,PostTraumatic_Stress_Disorder,3192,3192,ncsr,0
-292,PT120,Age at random event (2),PostTraumatic_Stress_Disorder,3193,3193,ncsr,0
-293,PT246A,Age 1st talk professional about reaction,PostTraumatic_Stress_Disorder,3240,3240,ncsr,0
-294,PT256A,Age 1st received helpful/effective treatment for reactions,PostTraumatic_Stress_Disorder,3242,3242,ncsr,0
-295,PT55C,"Age when event, PT55 happened",PostTraumatic_Stress_Disorder,3296,3296,ncsr,0
-296,PT120A,Correct age at random event,PostTraumatic_Stress_Disorder,3299,3299,ncsr,0
-297,PT59B,Age RANDOM EVENT,PostTraumatic_Stress_Disorder,3300,3300,ncsr,0
-298,EA12A,Age at lowest weight,Eating_Disorder,3311,3311,ncsr,0
-299,EA12B1,Estimate age of 1st time lowest weight,Eating_Disorder,3312,3312,ncsr,0
-300,EA15A,Age last at lowest weight,Eating_Disorder,3315,3315,ncsr,0
-301,EA19A,Age of 1st binged 2 times/week for 3+ mths,Eating_Disorder,3327,3327,ncsr,0
-302,EA19B,Estimate age 1st binged 2/week for 3+ mths-computed,Eating_Disorder,3328,3328,ncsr,0
-303,EA19B1,Estimate age of 1st binged 2/week for 3+ mths,Eating_Disorder,3329,3329,ncsr,0
-304,EA22A,Age last binged 2 times a week,Eating_Disorder,3333,3333,ncsr,0
-305,EA26A,Age 1st used weight control method for 3+ mths,Eating_Disorder,3342,3342,ncsr,0
-306,EA26B1,Estimate age used weight control method for 3+ mths,Eating_Disorder,3343,3343,ncsr,0
-307,EA29A,Age last used weight control strategy,Eating_Disorder,3346,3346,ncsr,0
-308,EA35A,Age 1st saw doctor for eating problems,Eating_Disorder,3353,3353,ncsr,0
-309,EA37A,Age 1st received helpful treatment for eating/weight probs,Eating_Disorder,3355,3355,ncsr,0
+240,CH2A,Your age when your mother died,Childhood,2434,2434,ncsr,0
+241,CH2B,Your age when your father died,Childhood,2435,2435,ncsr,0
+242,CH2C,Your age when your parents divorced,Childhood,2436,2436,ncsr,0
+243,CH6B,Age 1st time went away,Childhood,2443,2443,ncsr,0
+244,CH6CA,"Unit of time away from home before age 16, CH6C",Childhood,2445,2445,ncsr,0
+245,CH30_1A,Freq made to do chores too diffic/dang for age in childhood,Childhood,2460,2460,ncsr,0
+246,CH30_1B,Freq left unsupervised at too early age in childhood,Childhood,2461,2461,ncsr,0
+247,AD3B,Estimate age of 1st attention problems-compute,Attention_Deficit_Hyperactivity_Disorder,2542,2542,ncsr,0
+248,AD3B1,Estimate age of 1st attention problems,Attention_Deficit_Hyperactivity_Disorder,2543,2543,ncsr,0
+249,AD4A,Age last time had attention problem for 6+ months,Attention_Deficit_Hyperactivity_Disorder,2548,2548,ncsr,0
+250,AD14A,Age 1st talked to professional for attention difficulties,Attention_Deficit_Hyperactivity_Disorder,2560,2560,ncsr,0
+251,AD25A,Age 1st got helpful/effective treatment for attn difficulties,Attention_Deficit_Hyperactivity_Disorder,2562,2562,ncsr,0
+252,AD28A,Age 1st hospitalized overnight for attention difficulties,Attention_Deficit_Hyperactivity_Disorder,2567,2567,ncsr,0
+253,AD32B,Estimate age of 1st restless/impatient difficulty-computed,Attention_Deficit_Hyperactivity_Disorder,2581,2581,ncsr,0
+254,AD33A,Age last time restless/impatient difficulty 6+ mths,Attention_Deficit_Hyperactivity_Disorder,2583,2583,ncsr,0
+255,AD43_1A,Age 1st saw prof for impatience difficulties,Attention_Deficit_Hyperactivity_Disorder,2595,2595,ncsr,0
+256,AD43_1C,Age 1st got helpful/effective trmt for impatience difficulties,Attention_Deficit_Hyperactivity_Disorder,2597,2597,ncsr,0
+257,AD43_1H,Age 1st hospitalized overnight for impatience difficulties,Attention_Deficit_Hyperactivity_Disorder,2602,2602,ncsr,0
+258,AD32B1,Estimate age 1st irestless/impatient difficulty,Attention_Deficit_Hyperactivity_Disorder,2603,2603,ncsr,0
+259,OD3B,Estimate age of 1st behavior problems for 6+ mths-compute,OppositionalDefiant_Disorder,2619,2619,ncsr,0
+260,OD3B1,Estimate age 1st  behavior problems for 6+ mths,OppositionalDefiant_Disorder,2620,2620,ncsr,0
+261,OD4A,Age last had behavior trouble for 6+ months,OppositionalDefiant_Disorder,2624,2624,ncsr,0
+262,OD12A,Age 1st talked to professional about behavior,OppositionalDefiant_Disorder,2633,2633,ncsr,0
+263,OD23A,Age 1st got helpful/effective treatment for behavior,OppositionalDefiant_Disorder,2635,2635,ncsr,0
+264,OD26A,Age 1st hospitalized overnight for behavior,OppositionalDefiant_Disorder,2640,2640,ncsr,0
+265,CD7B,Estimate age 1st time you had conduct disorder,Conduct_Disorder,2655,2655,ncsr,0
+266,ACD18C1,Estimate age 1st aggress behavior,Conduct_Disorder,2658,2658,ncsr,0
+267,CD9A,Age last time you had conduct disorder,Conduct_Disorder,2662,2662,ncsr,0
+268,CD18B,Age of the very 1st aggressive behavior,Conduct_Disorder,2673,2673,ncsr,0
+269,CD20A,Age last time you engaged in aggressive behavior,Conduct_Disorder,2675,2675,ncsr,0
+270,CD37A,Age 1st police trouble for aggressive behavior,Conduct_Disorder,2681,2681,ncsr,0
+271,SA8A,Age of 1st specific sep anx of 1+ mths,Separation_Anxiety,2699,2699,ncsr,0
+272,SA8B,Estimate age of 1st specific sep anx of 1+ mths-com,Separation_Anxiety,2700,2700,ncsr,0
+273,SA8B1,Estimate age of 1st sep anx of 1+ mths,Separation_Anxiety,2701,2701,ncsr,0
+274,SA19A,Age of very 1st fam/part/friend separation anxiety,Separation_Anxiety,2725,2725,ncsr,0
+275,SA19B,Estimate age of 1st fam/part/friend separation anxiety-comp,Separation_Anxiety,2726,2726,ncsr,0
+276,SA19B1,Estimate age 1st fam/part/friend separation anxiety,Separation_Anxiety,2727,2727,ncsr,0
+277,SA20C,Age last had separation anxiety for 1+ mths,Separation_Anxiety,2733,2733,ncsr,0
+278,SA43A,Age 1st talked to prof for separation anxiety,Separation_Anxiety,2742,2742,ncsr,0
+279,SA44A,Age 1st received helpful/effective treatment for sep anx,Separation_Anxiety,2744,2744,ncsr,0
+280,SA47A,Age 1st hospitalized overnight for separation anxiety,Separation_Anxiety,2749,2749,ncsr,0
+281,DM1_15,Age 1st yr worked 6 mths + at paid job,Demographics,3078,3078,ncsr,0
+282,DM20,Age you married 1st time: Top/Bot Code,Demographics,3099,3099,ncsr,0
+283,DM_EM1,Age 1st yr worked 6 mths + at paid job,Demographics,3118,3118,ncsr,0
+284,DM_MR19,Age you married 1st time: Top/Bot Code,Demographics,3131,3131,ncsr,0
+285,PT57A1,Age at most upsetting traumatic event not reported,PostTraumatic_Stress_Disorder,3149,3149,ncsr,0
+286,PT59B_5,Age at time of random event,PostTraumatic_Stress_Disorder,3156,3156,ncsr,0
+287,PT64A,Age at worst event,PostTraumatic_Stress_Disorder,3162,3162,ncsr,0
+288,PT119,Age at RANDOM EVENT,PostTraumatic_Stress_Disorder,3191,3191,ncsr,0
+289,PT119A,Correct age at random event,PostTraumatic_Stress_Disorder,3192,3192,ncsr,0
+290,PT120,Age at random event (2),PostTraumatic_Stress_Disorder,3193,3193,ncsr,0
+291,PT246A,Age 1st talk professional about reaction,PostTraumatic_Stress_Disorder,3240,3240,ncsr,0
+292,PT256A,Age 1st received helpful/effective treatment for reactions,PostTraumatic_Stress_Disorder,3242,3242,ncsr,0
+293,PT55C,"Age when event, PT55 happened",PostTraumatic_Stress_Disorder,3296,3296,ncsr,0
+294,PT120A,Correct age at random event,PostTraumatic_Stress_Disorder,3299,3299,ncsr,0
+295,PT59B,Age RANDOM EVENT,PostTraumatic_Stress_Disorder,3300,3300,ncsr,0
+296,EA12A,Age at lowest weight,Eating_Disorder,3311,3311,ncsr,0
+297,EA12B1,Estimate age of 1st time lowest weight,Eating_Disorder,3312,3312,ncsr,0
+298,EA15A,Age last at lowest weight,Eating_Disorder,3315,3315,ncsr,0
+299,EA19A,Age of 1st binged 2 times/week for 3+ mths,Eating_Disorder,3327,3327,ncsr,0
+300,EA19B,Estimate age 1st binged 2/week for 3+ mths-computed,Eating_Disorder,3328,3328,ncsr,0
+301,EA19B1,Estimate age of 1st binged 2/week for 3+ mths,Eating_Disorder,3329,3329,ncsr,0
+302,EA22A,Age last binged 2 times a week,Eating_Disorder,3333,3333,ncsr,0
+303,EA26A,Age 1st used weight control method for 3+ mths,Eating_Disorder,3342,3342,ncsr,0
+304,EA26B1,Estimate age used weight control method for 3+ mths,Eating_Disorder,3343,3343,ncsr,0
+305,EA29A,Age last used weight control strategy,Eating_Disorder,3346,3346,ncsr,0
+306,EA35A,Age 1st saw doctor for eating problems,Eating_Disorder,3353,3353,ncsr,0
+307,EA37A,Age 1st received helpful treatment for eating/weight probs,Eating_Disorder,3355,3355,ncsr,0
