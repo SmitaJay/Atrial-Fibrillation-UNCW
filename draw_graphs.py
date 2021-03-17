@@ -1,8 +1,19 @@
-import re
+import networkx as nx
 import pandas as pd
-import json
-import requests
+import numpy as np
+from plotly.offline import download_plotlyjs, init_notebook_mode, iplot
+import plotly.graph_objs as go
+import graphviz
+import re
 import copy
+import pathpy as pp
+import matplotlib.pyplot as plt
+# For color mapping
+import matplotlib.colors as colors
+import matplotlib.cm as cmx
+import matplotlib.lines as mlines
+import pydot
+from networkx.drawing.nx_pydot import graphviz_layout
 
 
 class draw_graphs:
@@ -19,6 +30,7 @@ class draw_graphs:
     self.subset_df = pd.DataFrame()
     self.average_onset_age = {}
     self.node_occurence = {}
+    self.subset_graphs = []
     for x in self.age_vars:
         self.average_onset_age[x] = 0
 
@@ -40,82 +52,82 @@ class draw_graphs:
     a = a.iloc[:, 1:] >0
     for x in a:
         self.node_occurence[x] = eval("a." + x + ".sum()")/len(a.index)
+
+    for case in range(len(self.subset_df)):
+        subset_graphs.append(get_individual_graph(case))
     
 
   def get_dsm_df(self, dsm):
       return copy.deepcopy(self.main_df[self.main_df.loc[:, dsm] == 1].reset_index(drop=True))
 
-  def get_individual_graph(self, caseID):
-        graphs = []
-        for case in range(len(self.sub)):
-            case_number = add_subset.iloc[case, 0]
-            ordered_vals =[]
-            ordered_vars = []
-            vals = []
-            case_age_vars = []
-            for symptom in add_subset:
-                if symptom != "CASEID":
-                    if add_subset.loc[case, symptom] > 0:
-                        vals.append(add_subset.loc[case, symptom])
-                        case_age_vars.append(symptom)
-            # initialize the ordered lists
-            #order ints by age symptom occured
-            for x in range(0, len(vals)):
-                m = vals.index(min(vals))
-                ordered_vals.append(vals[m])
-                ordered_vars.append(case_age_vars[m])
-                del vals[m]
-                del case_age_vars[m]
+  def get_individual_graph(self, case):
+    ordered_vals =[]
+    ordered_vars = []
+    vals = []
+    case_age_vars = []
+    for symptom in self.subset_df:
+        if symptom != "CASEID":
+            if self.subset_df.loc[case, symptom] > 0:
+                vals.append(self.subset_df.loc[case, symptom])
+                case_age_vars.append(symptom)
+    # initialize the ordered lists
+    #order ints by age symptom occured
+    for x in range(0, len(vals)):
+        m = vals.index(min(vals))
+        ordered_vals.append(vals[m])
+        ordered_vars.append(case_age_vars[m])
+        del vals[m]
+        del case_age_vars[m]
 
-            G = nx.DiGraph()
-            for x in range(0, len(ordered_vals)):
-                G.add_node(ordered_vars[x], age = ordered_vals[x])
+    G = nx.DiGraph()
+    for x in range(0, len(ordered_vals)):
+        G.add_node(ordered_vars[x], age = ordered_vals[x])
+    mult_flag = 0
+    back_start = -1
+    back_end = -1
+    back_flag = 0
+    start = 0
+    for x in range(0, len(ordered_vars)-1):
+        if ordered_vals[x] != ordered_vals[x+1]:
+            if not mult_flag:
+                G.add_edges_from([(ordered_vars[x], ordered_vars[x+1])])
+                back_flag = 0
+            else: 
+                for y in range(start, x+1):
+                    G.add_edges_from([(ordered_vars[y], ordered_vars[x+1])])
+                    back_flag = 1
+                    back_end = x
+            back_start = start
+            start = x + 1
             mult_flag = 0
-            back_start = -1
-            back_end = -1
-            back_flag = 0
-            start = 0
-            for x in range(0, len(ordered_vars)-1):
-                if ordered_vals[x] != ordered_vals[x+1]:
-                    if not mult_flag:
-                        G.add_edges_from([(ordered_vars[x], ordered_vars[x+1])])
-                        back_flag = 0
-                    else: 
-                        for y in range(start, x+1):
-                            G.add_edges_from([(ordered_vars[y], ordered_vars[x+1])])
-                            back_flag = 1
-                            back_end = x
-                    back_start = start
-                    start = x + 1
-                    mult_flag = 0
-                elif ordered_vals[x] == ordered_vals[x+1]:
-                    mult_flag = 1
-                    if back_start<0:
-                        continue
-                    if back_flag: 
-                        for y in range(back_start, back_end + 1):
-                            G.add_edges_from([(ordered_vars[y], ordered_vars[x+1])])
-                    else:
-                        G.add_edges_from([(ordered_vars[back_start], ordered_vars[x+1])]) 
+        elif ordered_vals[x] == ordered_vals[x+1]:
+            mult_flag = 1
+            if back_start<0:
+                continue
+            if back_flag: 
+                for y in range(back_start, back_end + 1):
+                    G.add_edges_from([(ordered_vars[y], ordered_vars[x+1])])
+            else:
+                G.add_edges_from([(ordered_vars[back_start], ordered_vars[x+1])]) 
 
-            add_graphs.append(G)
+    return G
 
-        for x in add_graphs: 
-            node_age_added = []
-            for from_node in age_variable_subset.iloc[:,0]:
-                for to_node in age_variable_subset.iloc[:,0]:
-                    if x.has_edge(from_node, to_node):
-                        if from_node not in node_age_added: 
-                            onset_count[from_node] += 1
-                            average_onset[from_node] += x.nodes[from_node]['age']
-                            node_age_added.append(from_node)
-                        if to_node not in node_age_added:
-                            onset_count[to_node] += 1
-                            average_onset[to_node] += x.nodes[to_node]['age']
-                            node_age_added.append(to_node)
-                        
-                        add_edges.loc[from_node, to_node] += 1
-      
+  def add_dsm_edges(self): 
+    for x in self.subset_graphs: 
+        node_age_added = []
+        for from_node in self.age_vars.iloc[:,0]:
+            for to_node in self.age_vars.iloc[:,0]:
+                if x.has_edge(from_node, to_node):
+                    if from_node not in node_age_added: 
+                        onset_count[from_node] += 1
+                        average_onset[from_node] += x.nodes[from_node]['age']
+                        node_age_added.append(from_node)
+                    if to_node not in node_age_added:
+                        onset_count[to_node] += 1
+                        average_onset[to_node] += x.nodes[to_node]['age']
+                        node_age_added.append(to_node)
+                    
+                    add_edges.loc[from_node, to_node] += 1
 
   def list_dsm_diags(self):
     print(self.ncs.get_value_from_string(self.ncs.root.iloc[43,0]))
