@@ -628,10 +628,10 @@ class GraphHawkes(CHawkes):
 class DDP(GraphHawkes):
     """
     DDP model
-    """
+    """ 
     def __init__(self, n_event_type, n_context_dim, first_occurrence_only=False, mu_vec_np=None, alpha_mat_np=None,
                  lambda_mat_np=None, embedding_size=10, rnn_hidden_size=10, gap_mean=0, gap_scale=1):
-        super().__init__(n_event_type, n_context_dim, first_occurrence_only, mu_vec_np, alpha_mat_np, lambda_mat_np)
+        super().__init__(n_event_type, n_context_dim,first_occurrence_only, mu_vec_np, alpha_mat_np, lambda_mat_np)
         self.gap_mean = gap_mean
         self.gap_scale = gap_scale
         self.embeding = nn.Embedding(n_event_type, embedding_size)
