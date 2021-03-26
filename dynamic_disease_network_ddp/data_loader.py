@@ -133,6 +133,10 @@ def get_mini_batch(batch_size, batch_input):
     mini_batch = map(lambda x: torch.tensor(x[..., idx]), batch_input)
     return list(mini_batch)
 
+def get_case_batch(case_number, batch_input):
+    case_batch = map(lambda x: torch.tensor(x[..., np.array(case_number)-1]), batch_input)
+    return list(case_batch)
+
 
 def get_whole_batch(batch_input):
     n_record = batch_input[0].shape[1]
