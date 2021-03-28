@@ -10,7 +10,7 @@ import pandas as pd
 
 ncsr = pd.read_csv('../justage_vars_init.csv', index_col=0)
 
-pkl = open('../ncsr_for_ddp.pickle', "rb")
+pkl = open('../gad_for_ddp.pickle', "rb")
 ddp_data = {}
 ddp_data['ncsr'] = pickle.load(pkl)
 pkl.close()

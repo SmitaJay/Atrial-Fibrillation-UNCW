@@ -628,10 +628,10 @@ class GraphHawkes(CHawkes):
 class DDP(GraphHawkes):
     """
     DDP model
-    """ 
+    """
     def __init__(self, n_event_type, n_context_dim, first_occurrence_only=False, mu_vec_np=None, alpha_mat_np=None,
                  lambda_mat_np=None, embedding_size=10, rnn_hidden_size=10, gap_mean=0, gap_scale=1):
-        super().__init__(n_event_type, n_context_dim,first_occurrence_only, mu_vec_np, alpha_mat_np, lambda_mat_np)
+        super().__init__(n_event_type, n_context_dim, first_occurrence_only, mu_vec_np, alpha_mat_np, lambda_mat_np)
         self.gap_mean = gap_mean
         self.gap_scale = gap_scale
         self.embeding = nn.Embedding(n_event_type, embedding_size)
@@ -663,3 +663,5 @@ class DDP(GraphHawkes):
         graph_weights = torch.sigmoid(self.rnn_lin(rnn_output)).reshape(rnn_output.shape[:2])
         self.graph_weights_seq = graph_weights
         self.graph_weights_to_current = graph_weights[None, :, :] * seq_mask_to_current
+
+

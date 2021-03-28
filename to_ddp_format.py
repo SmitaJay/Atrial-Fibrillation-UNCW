@@ -60,7 +60,6 @@ dpp_data = []
 
 
 for x in ncsr.index: 
-    last_event = 0
     sorted_case = ncsr.iloc[x, 1:].sort_values()
     sorted_vars = list(sorted_case.index)
     dpp_data.append([])
@@ -68,12 +67,8 @@ for x in ncsr.index:
     for y in range(len(sorted_case)):
         if sorted_case[y] != -1:
             dpp_data[x].append({})
-            dpp_data[x][count]['idx_event'] = count + 1
             dpp_data[x][count]['type_event'] = list(ncsr.columns).index(sorted_vars[y])
             dpp_data[x][count]['time_since_start'] = sorted_case[y]/100
-            dpp_data[x][count]['time_since_last_same_event'] = sorted_case[y]/100
-            dpp_data[x][count]['time_since_last_event'] = sorted_case[y]/100 - last_event
-            last_event = sorted_case[y]/100
             count += 1
 
 
