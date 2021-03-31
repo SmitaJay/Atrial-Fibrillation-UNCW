@@ -4,5 +4,6 @@
     "python.autoComplete.extraPaths": [
     
     ],
-    "python.pythonPath": "C:\\Users\\galyn\\miniconda3\\python.exe"
+    "python.pythonPath": "C:\\Users\\galyn\\miniconda3\\python.exe",
+    "git.ignoreLimitWarning": true
 }
