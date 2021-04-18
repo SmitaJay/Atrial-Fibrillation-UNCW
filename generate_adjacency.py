@@ -10,11 +10,6 @@ from ncsr_import import ncsr_data
 import re
 import copy
 import pathpy as pp
-#import matplotlib.pyplot as plt
-# For color mapping
-#import matplotlib.colors as colors
-#import matplotlib.cm as cmx
-#import matplotlib.lines as mlines
 import pydot
 from networkx.drawing.nx_pydot import graphviz_layout
 from tqdm import tqdm
@@ -36,6 +31,7 @@ ncsr = ncsr_data()
 
 
 # below code is used to cut out variables that have do do with onset age of symptoms
+# uncomment b & c lines to check the differences between dataframes
 age_variable_subset = pd.DataFrame(columns = ['VarName', 'Description', 'Root_DF', 'Start', 'End', 'DataFrame', 'recursion_flag'])
 #b = pd.DataFrame(columns = ['VarName', 'Description', 'Root_DF', 'Start', 'End', 'DataFrame', 'recursion_flag'])
 #c = pd.DataFrame(columns = ['VarName', 'Description', 'Root_DF', 'Start', 'End', 'DataFrame', 'recursion_flag'])
@@ -61,8 +57,9 @@ for x in range(1, len(ncsr.root)):
    # )
    # pd.concat([,c]).drop_duplicates(keep=False).to_csv('out.csv')
 #age_variable_subset = age_variable_subset.reset_index(drop=True)
-age_variable_subset
+#age_variable_subset
 #ncsr.ncs.to_csv('initialized_age_vars.csv')
+  #^uncomment to save to csv
 
 ncsr_edges_init = pd.DataFrame(0, columns = age_variable_subset.iloc[:,0], index=age_variable_subset.iloc[:,0])
 
@@ -80,18 +77,19 @@ for y in tqdm(range(0, len(ncsr_subset))):
             else:
                 ncsr_subset.loc[y,x] = 0
 
-ncsr_subset.to_csv('age_subset.csv')
-"""
+#ncsr_subset.to_csv('age_subset.csv') 
+  #^ Uncomment to save to csv
+
 average_onset_age_init = {}
 for x in ncsr_edges_init:
     average_onset_age_init[x] = 0
+# Average onset age init gathers all ages for a symptom and then averages after the the graph is made
 
 
 ncsr_edges = ncsr_edges_init.copy(deep=True)
 average_onset = copy.deepcopy(average_onset_age_init)
 onset_count = copy.deepcopy(average_onset_age_init)
-"""
-"""
+
 ncsr_graphs = []
 for case in tqdm(range(len(ncsr_subset))):
     case_number = ncsr_subset.iloc[case, 0]
@@ -115,6 +113,7 @@ for case in tqdm(range(len(ncsr_subset))):
         del case_age_vars[m]
 
     G = nx.DiGraph()
+    # build a graph
     for x in range(0, len(ordered_vals)):
         G.add_node(ordered_vars[x], age = ordered_vals[x])
     mult_flag = 0
@@ -148,6 +147,7 @@ for case in tqdm(range(len(ncsr_subset))):
     ncsr_graphs.append(G)
 
 for x in ncsr_graphs: 
+    # add graph to the adjacency matrix
     node_age_added = []
     for from_node in ncsr_subset.iloc[:,0]:
         for to_node in ncsr_subset.iloc[:,0]:
@@ -173,4 +173,3 @@ for x in range(len(ncsr_edges)):
 
 
 ncsr_edges.to_csv("all_adjacency_matrix.csv")
-"""

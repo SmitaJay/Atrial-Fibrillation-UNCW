@@ -1,0 +1,6 @@
+pip3 install numpy
+pip3 install matplotlib
+pip3 install pandas
+pip3 install tqdm
+pip3 install dgl # note - must do correct version of cuda
+pip3 install torch torchvision torchaudio

@@ -17,9 +17,6 @@ import matplotlib.lines as mlines
 import pydot
 from networkx.drawing.nx_pydot import graphviz_layout
 
-
-calss
-
 class ncsr_subject:
     
     def __init__(self, diagnosis1 = "", diagnosis2 = ""):

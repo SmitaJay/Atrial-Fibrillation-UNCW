@@ -1,21 +1,7 @@
 import pandas as pd
 import numpy as np
-#import networkx as nx
-#from plotly.offline import download_plotlyjs, init_notebook_mode, iplot
-#import plotly.graph_objs as go
-#import graphviz
-#from ncs1_import import ncs1_data
 from ncsr_import import ncsr_data
-#import re
 import copy
-#import pathpy as pp
-#import matplotlib.pyplot as plt
-# For color mapping
-#import matplotlib.colors as colors
-#import matplotlib.cm as cmx
-#import matplotlib.lines as mlines
-#import pydot
-#from networkx.drawing.nx_pydot import graphviz_layout
 
 
 # Pull ncsr data from file ncsr_import
@@ -71,7 +57,6 @@ for y in range(0, len(ncsr_age_vars)):
                 ncsr_age_vars.loc[y,x] = -1
 
 
-print(ncsr_age_vars)
 #ncsr_age_vars.to_csv('justage_vars_init.csv')
   #^uncomment to save age variable subset of ncsr as csv
 
