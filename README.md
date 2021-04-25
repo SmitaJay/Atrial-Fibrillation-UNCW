@@ -75,15 +75,13 @@ To get a local copy up and running follow these simple steps.
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-     Usage: This code was written in Python 3.8.5
-     Requirements are listed in <a href="/requirements.txt"><strong>requirements.txt</strong></a>
-     Cuda is required to run
-     <ol>
-        <li>Install all requirements</li>
-        <li>Run ```python3 extract_age_vars.py```</li>
-        <li>Run ```python3 make_indiv_graphs.py```</li>
-        <li>Run ```./get_dsm_graphs.py```</li>
-     </ol>
+Usage: This code was written in Python 3.8.5
+Requirements are listed in <a href="/requirements.txt"><strong>requirements.txt</strong></a>
+Cuda is required to run
+     1. Install all requirements
+     2. Run ```python3 extract_age_vars.py```
+     3. Run ```python3 make_indiv_graphs.py```
+     4. Run ```./get_dsm_graphs.py```
 
 
 
