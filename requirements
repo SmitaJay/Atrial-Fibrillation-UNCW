@@ -2,5 +2,7 @@ pip3 install numpy
 pip3 install matplotlib
 pip3 install pandas
 pip3 install tqdm
-pip3 install dgl # note - must do correct version of cuda
-pip3 install torch torchvision torchaudio
+pip3 install dgl-cu101 # note - must do correct version of cuda we use cuda-10.1
+pip3 install torch torchvision torchaudio # note - must do correct version of cuda we use cuda-10.1
+pip3 install plotly
+pip3 install graphviz

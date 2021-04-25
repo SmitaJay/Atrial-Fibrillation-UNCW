@@ -17,7 +17,6 @@ from networkx.drawing.nx_pydot import graphviz_layout
 
 
 class draw_graphs:
-  # class to read in the ncs 06693 data & get it ready to use
 
   def __init__(self, ncs, ncsr_flag, dsm):
     self.ncs = copy.deepcopy(ncs)

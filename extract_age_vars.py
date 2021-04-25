@@ -1,3 +1,14 @@
+"""
+Georgia Smith
+2021 Senior Capstone Project
+
+extract_age_variables.py
+
+This is the first script run
+
+It isolates the age variables from the ncsr dataset and saves it as a csv
+"""
+
 import pandas as pd
 import numpy as np
 from ncsr_import import ncsr_data
@@ -52,12 +63,12 @@ for y in range(0, len(ncsr_age_vars)):
                     # Note subject age range is 18 - 99 so there should be no values above 100
                     ncsr_age_vars.loc[y, x] = int(ncsr_age_vars.loc[y,x])
                 else: 
-                    ncsr_age_vars.loc[y, x] = -1
+                    ncsr_age_vars.loc[y, x] = 0
             else:
-                ncsr_age_vars.loc[y,x] = -1
+                ncsr_age_vars.loc[y,x] = 0
 
 
-#ncsr_age_vars.to_csv('justage_vars_init.csv')
+ncsr_age_vars.to_csv('justage_vars_init.csv')
   #^uncomment to save age variable subset of ncsr as csv
 
 
