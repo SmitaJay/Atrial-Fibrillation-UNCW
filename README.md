@@ -16,7 +16,9 @@
     <br />
     <br />
      Usage: This code was written in Python 3.8.5
+    <br />
      Requirements are listed in <a href="/requirements"><strong>requirements</strong></a>
+    <br />
      Cuda is required to run
   </p>
 </p>
@@ -67,13 +69,7 @@ To get a local copy up and running follow these simple steps.
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-Usage: This code was written in Python 3.8.5
-
-Requirements are listed in <a href="/requirements.txt"><strong>requirements.txt</strong></a>
-
-Cuda is required to run
-
-1. Install all requirements
+1. Install all <a href="/requirements"><strong>requirements</strong></a>
 
 2. Run ```python3 extract_age_vars.py```
 
