@@ -1,8 +1,4 @@
-[![MIT License][license-shield]][license-url]
 
-
-
-<!-- PROJECT LOGO -->
 <br />
 <p align="center">
   <a href="https://github.com//025georgialynny/seminar">
