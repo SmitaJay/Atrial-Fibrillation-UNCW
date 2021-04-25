@@ -11,21 +11,13 @@
   <h3 align="center">Georgia Smith Senior Captone Project 2021</h3>
 
   <p align="center">
-    project_description
     <br />
-    <a href="https://github.com//025georgialynny/seminar"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com//025georgialynny/seminar/present.ipynb"><strong>View an example</strong></a>
     <br />
     <br />
      Usage: This code was written in Python 3.8.5
-     Requirements are listed in <a href="/requirements.txt"><strong>requirements.txt</strong></a>
+     Requirements are listed in <a href="/requirements"><strong>requirements</strong></a>
      Cuda is required to run
-     <ol>
-        <li>Install all requirements</li>
-        <li>Run python3 extract_age_vars.py</li>
-        <li>Run python3 make_indiv_graphs.py</li>
-        <li>Run ./get_dsm_graphs.py</li>
-     </ol>
-
   </p>
 </p>
 
