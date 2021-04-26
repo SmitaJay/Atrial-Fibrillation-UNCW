@@ -11,8 +11,7 @@
     <a href="https://github.com//025georgialynny/seminar/present.ipynb"><strong>View the Final Code in Jupyter</strong></a>
     <br />
       <br />
-    <a href="
-  https://docs.google.com/presentation/d/1A_M0flqeaVUBLYcDWxXpWqazK4LhR_cObaeh_lXm0Ao/edit?usp=sharing"><strong>Final Presentation Available Here</strong></a>
+    <a href="https://docs.google.com/presentation/d/1A_M0flqeaVUBLYcDWxXpWqazK4LhR_cObaeh_lXm0Ao/edit?usp=sharing"><strong>Final Presentation Available Here</strong></a>
     <br />
     <br />
      Usage: This code was written in Python 3.8.5
