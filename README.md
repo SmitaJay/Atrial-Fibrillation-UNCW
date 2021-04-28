@@ -10,10 +10,13 @@
     <br />
     <a href="https://github.com//025georgialynny/seminar/present.ipynb"><strong>View the Final Code in Jupyter</strong></a>
     <br />
-      <br />
-    <a href="https://docs.google.com/presentation/d/1A_M0flqeaVUBLYcDWxXpWqazK4LhR_cObaeh_lXm0Ao/edit?usp=sharing"><strong>Computer Science Final Presentation Available Here</strong></a>
     <br />
-  <a href="https://docs.google.com/presentation/d/1b-tgXKvQJHiyGRItjIMufUXBlAP4NWWIRbsRPORdlk8/edit?usp=sharing"><strong>Math Final Presentation Available Here</strong></a>
+      <br />
+    <a target=_blank href="https://docs.google.com/presentation/d/1A_M0flqeaVUBLYcDWxXpWqazK4LhR_cObaeh_lXm0Ao/edit?usp=sharing"><strong>Computer Science Final Presentation Available Here</strong></a>
+      <br />
+  <strong>~</strong>
+  <br />
+  <a target=_blank href="https://docs.google.com/presentation/d/1b-tgXKvQJHiyGRItjIMufUXBlAP4NWWIRbsRPORdlk8/edit?usp=sharing"><strong>Math Final Presentation Available Here</strong></a>
     <br />
     <br />
      Usage: This code was written in Python 3.8.5
