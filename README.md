@@ -8,7 +8,7 @@
 
   <p align="center">
     <br />
-    <a href="https://github.com//025georgialynny/seminar/present.ipynb"><strong>View the Final Code in Jupyter</strong></a>
+    <a href="/present.ipynb"><strong>View the Final Code in Jupyter</strong></a>
     <br />
     <br />
       <br />
